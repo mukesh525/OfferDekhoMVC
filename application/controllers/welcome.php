@@ -23,11 +23,17 @@ class Welcome extends CI_Controller {
              
          function loadheader(){
                $result=$this->products->getCategory();
-               $data=array();  $i = 0;
+               $brands=$this->products->getBrands();
+                $data=array();  $i = 0;
                 foreach($result as $row){
                    $data[$i]=  $row['Name'];
                    $i++;}
                 $data1['data']= $data;  
+                $brand=array();  $j = 0;
+                foreach($brands as $row){
+                   $brand[$j]=  $row['Name'];
+                   $j++;}
+                $data1['brand']= $brand; 
                 $this->load->view('templates/header',$data1);
         } 
 }
