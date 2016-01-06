@@ -59,12 +59,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="col1 me-one">
 									<h4>Popular Brands</h4>
 									<ul>
-										<li><a href="product.php">Levis</a></li>
-										<li><a href="product.php">Reebook</a></li>
-										<li><a href="product.php">Havells</a></li>
-										<li><a href="product.php">Puma</a></li>
-										<li><a href="product.php">Lee</a></li>
-										<li><a href="product.php">Nike</a></li>
+										 <?php foreach($brand as $key => $value) {?>
+										 <li><a href="<?=base_url()?>welcome/getdetail/<?php echo $value?>"><?php echo $value;?></a></li>
+                                                                              <?php }?>
 										
 									</ul>	
 								</div>
