@@ -37,13 +37,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="header-top">
 	 <div class="header-bottom">			
 				<div class="logo">
-					<h1><a href="index.php">Offer Dekho</a></h1>					
+					<h1><a href="<?=base_url()?>">Offer Dekho</a></h1>					
 				</div>
 			 <!---->		 
 			 <div class="top-nav">
 				<ul class="memenu skyblue"><li class="showhide" style="overflow: hidden; display: none;">
                                         <span class="title">MENU</span><span class="icon1"></span>
-                                        <span class="icon2"></span></li><li class="active"><a href="index.php">Home</a></li>
+                                        <span class="icon2"></span></li><li class="active"><a href="<?=base_url()?>">Home</a></li>
 					<li class="grid"><a href="#">Products</a>
 						<div class="mepanel">
 							<div class="row">

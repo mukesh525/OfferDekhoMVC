@@ -2,69 +2,35 @@
 
 class Welcome extends CI_Controller {
 
-     public function Welcome()
-    {
+     public function Welcome() {
          parent::__construct();
          $this->load->helper('url');
          $this->load->model('products');
-
-    }
-    
-    
-	
-	public function index()
-	{
-		   
-                $result=$this->products->getCategory();
-                
-                 $data=array();  $i = 0;
-                 foreach($result as $row)
-                 {
-                   $data[$i]=  $row['Name'];
-                   $i++;
-                 }
-                $data1['data']= $data;
-                $this->load->view('templates/header',$data1);
+         $this->loadheader();
+         }
+         public function index(){       
                 $this->load->view('templates/imageslider');
                 $this->load->view('templates/containers');
                 $this->load->view('templates/offers');
                 $this->load->view('templates/footer');
         }
-         function getdetail($category)  {
-                     
-               // print_r($category);
-                $result=$this->products->getCategory();
-                $data=array();  $i = 0;
+         function getdetail($category) {
+                $selection['selections']= $category;
+                $this->load->view('templates/product',$selection);
+                $this->load->view('templates/offers');
+                $this->load->view('templates/footer');
+              }
+             
+         function loadheader(){
+               $result=$this->products->getCategory();
+               $data=array();  $i = 0;
                 foreach($result as $row){
                    $data[$i]=  $row['Name'];
                    $i++;}
-                $data1['data']= $data;
-                $selection['selections']= $category;
+                $data1['data']= $data;  
                 $this->load->view('templates/header',$data1);
-                $this->load->view('templates/imageslider');
-                $this->load->view('templates/checkout',$selection);
-                $this->load->view('templates/offers');
-                $this->load->view('templates/footer');
-         }
-             
-             
-//                 $this->load->helper('url');       
-//                $result=$this->products->getCategory();
-//                $data=array();  $i = 0;
-//                 foreach($result as $row)
-//                 {
-//                   $data[$i]=  $row['Name'];
-//                   $i++;
-//                 }
-//                $data1['data']= $data;
-//                $selection['selections']= $category;
-//                $this->load->view('templates/header');
-//                $this->load->view('templates/imageslider');
-//             //   $this->load->view('templates/checkout',$selection);
-//                $this->load->view('templates/offers');
-//                $this->load->view('templates/footer');
-               
         } 
+}
     
             
               
