@@ -15,7 +15,7 @@
 				  </a>
 			 </div>
 			 <div class="col-md-3 feature-grid">
-				 <a href="product.php"><img src="images/img2.jpg" alt=""/>	
+				 <a href="product.php"><img src="<?=base_url()?>images/img2.jpg" alt=""/>	
 					 <div class="arrival-info">
 						 <h4>Lighting #1</h4>
 						 <p>Rs 10000</p>
@@ -28,7 +28,7 @@
 				  </a>
 			 </div>
 			 <div class="col-md-3 feature-grid">
-				 <a href="product.php"><img src="images/img3.jpg" alt=""/>	
+				 <a href="product.php"><img src="<?=base_url()?>images/img3.jpg" alt=""/>	
 					 <div class="arrival-info">
 						 <h4>Lighting #1</h4>
 						 <p>Rs 8500</p>
@@ -41,7 +41,7 @@
 				  </a>
 			 </div>
 			 <div class="col-md-3 feature-grid">
-				 <a href="product.php"><img src="images/img4.jpg" alt=""/>	
+				 <a href="product.php"><img src="<?=base_url()?>images/img4.jpg" alt=""/>	
 					 <div class="arrival-info">
 						 <h4>Lighting #1</h4>
 						 <p>Rs 12000</p>
@@ -49,7 +49,7 @@
 						 <span class="disc">[12% Off]</span>
 					 </div>
 					 <div class="viw">
-						<a href="product.php"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>View</a>
+						<a href="<?=base_url()?>product.php"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>View</a>
 					 </div>
 				  </a>
 			 </div>
@@ -57,7 +57,7 @@
 		 </div>
 		 <div class="items-sec btm-sec">
 			 <div class="col-md-3 feature-grid">
-				 <a href="product.php"><img src="images/img5.jpg" alt=""/>	
+				 <a href="product.php"><img src="<?=base_url()?>images/img5.jpg" alt=""/>	
 					 <div class="arrival-info">
 						 <h4>Lighting #1</h4>
 						 <p>Rs 500</p>
@@ -70,7 +70,7 @@
 				  </a>
 			 </div>
 			 <div class="col-md-3 feature-grid">
-				 <a href="product.php"><img src="images/img8.jpg" alt=""/>	
+				 <a href="product.php"><img src="<?=base_url()?>images/img8.jpg" alt=""/>	
 					 <div class="arrival-info">
 						 <h4>Lighting #1</h4>
 						 <p>Rs 400</p>
@@ -83,7 +83,7 @@
 				  </a>
 			 </div>
 			 <div class="col-md-3 feature-grid">
-				 <a href="product.php"><img src="images/img7.jpg" alt=""/>	
+				 <a href="product.php"><img src="<?=base_url()?>images/img7.jpg" alt=""/>	
 					 <div class="arrival-info">
 						 <h4>Lighting #1</h4>
 						 <p>Rs 800</p>
@@ -96,7 +96,7 @@
 				  </a>
 			 </div>
 			 <div class="col-md-3 feature-grid">
-				 <a href="product.php"><img src="images/img6.jpg" alt=""/>	
+				 <a href="product.php"><img src="<?=base_url()?>images/img6.jpg" alt=""/>	
 					 <div class="arrival-info">
 						 <h4>Lighting #1</h4>
 						 <p>Rs 600</p>

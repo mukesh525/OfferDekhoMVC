@@ -1,11 +1,11 @@
 <head>
 <title>Offer Dekho:Get to know about all offer near to your supermarket</title>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/docs.min.css" rel="stylesheet">
+<link href="<?=base_url()?>css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="<?=base_url()?>css/docs.min.css" rel="stylesheet">
 <!-- Custom Theme files -->
 <!--theme style-->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
-<script src="js/jquery.min.js"></script>
+<link href="<?=base_url()?>css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<script src="<?=base_url()?>js/jquery.min.js"></script>
 
 <!--//theme style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,14 +14,14 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- start menu -->
-<script src="js/simpleCart.min.js"> </script>
+<script src="<?=base_url()?>js/simpleCart.min.js"> </script>
 <!-- start menu -->
-<link href="css/memenu.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="js/memenu.js"></script>
+<link href="<?=base_url()?>css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="<?=base_url()?>js/memenu.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>	
 <!-- /start menu -->
 </head>
-<script src="js/responsiveslides.min.js"></script>
+<script src="<?=base_url()?>js/responsiveslides.min.js"></script>
 <script>  
     $(function () {
       $("#slider").responsiveSlides({
@@ -51,7 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<h4>Type</h4>
 									<ul>
                                                                           <?php foreach($data as $key => $value) {?>
-                                                                            <li><a href="product.php?category=<?php echo $value?>"><?php echo $value;?></a></li>
+                                                                            <li><a href="index.php/welcome/getdetail/<?php echo $value?>"><?php echo $value;?></a></li>
                                                                               <?php }?>
 									</ul>
                                                                         
