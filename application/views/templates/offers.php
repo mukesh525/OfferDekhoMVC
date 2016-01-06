@@ -5,7 +5,7 @@
 		 <div class="col-md-6 grid-left">
 			 <a href="#"><div class="offer-grid1">
 				 <div class="ofr-pic">
-					 <img src="images/ofr2.jpeg" class="img-responsive" alt=""/>
+					 <img src="<?=base_url()?>images/ofr2.jpeg" class="img-responsive" alt=""/>
 				 </div>
 				 <div class="ofr-pic-info">
 					 <h4>Emergency Lights <br>& Led Bulds</h4>
@@ -24,7 +24,7 @@
 					 <p>Shop Now</p>
 				 </div>
 				 <div class="ofr-pic2">
-					 <img src="images/ofr3.jpg" class="img-responsive" alt=""/>
+					 <img src="<?=base_url()?>images/ofr3.jpg" class="img-responsive" alt=""/>
 				 </div>
 				 <div class="clearfix"></div>
 			 </div></a>

@@ -2,7 +2,7 @@
 	 <div class="container">
 		 <div class="items-sec">
 			 <div class="col-md-3 feature-grid">
-				 <a href="product.php"><img src="images/img1.jpg" alt=""/>	
+				 <a href="product.php"><img src="<?=base_url()?>images/img1.jpg" alt=""/>	
 					 <div class="arrival-info">
 						 <h4>Lighting #1</h4>
 						 <p>Rs 12000</p>
