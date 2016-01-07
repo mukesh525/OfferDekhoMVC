@@ -7,8 +7,10 @@ class Welcome extends CI_Controller {
          $this->load->helper('url');
          $this->load->model('products');
          $this->loadheader();
+        
          }
-         public function index(){       
+         public function index(){ 
+               
                 $this->load->view('templates/imageslider');
                 $this->load->view('templates/containers');
                 $this->load->view('templates/offers');
@@ -16,18 +18,24 @@ class Welcome extends CI_Controller {
         }
          function getType($type) {
                 $result1=$this->products->getProductsByType($type); 
-                $selection['selections']= $result1;
-                $this->load->view('templates/product',$selection);
-                $this->load->view('templates/offers');
-                $this->load->view('templates/footer');
+                if(sizeof($result1) <1) {
+                  $this->load->view('templates/emptyproduct');
+                 }else{
+                  $selection['selections']= $result1;
+                  $this->load->view('templates/product',$selection);
+                 }$this->load->view('templates/offers');
+                  $this->load->view('templates/footer');
              
               }
                function getBrands($brand) {
                 $result1=$this->products->getProductsByBrand($brand); 
-                $selection['selections']= $result1;
-                $this->load->view('templates/product',$selection);
-                $this->load->view('templates/offers');
-                $this->load->view('templates/footer');
+                 if(sizeof($result1) <1) {
+                   $this->load->view('templates/emptyproduct');
+                 }else{
+                  $selection['selections']= $result1;
+                  $this->load->view('templates/product',$selection);
+                 }$this->load->view('templates/offers');
+                 $this->load->view('templates/footer');
              
               }
              
@@ -46,6 +54,11 @@ class Welcome extends CI_Controller {
                 $data1['brand']= $brand; 
                 $this->load->view('templates/header',$data1);
         } 
+        
+        
+        function Admin(){
+              $this->load->view('admin/login');
+         }
 }
     
             
