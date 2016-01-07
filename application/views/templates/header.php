@@ -51,7 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<h4>Type</h4>
 									<ul>
                                                                           <?php foreach($data as $key => $value) {?>
-                                                                            <li><a href="<?=base_url()?>welcome/getdetail/<?php echo $value?>"><?php echo $value;?></a></li>
+                                                                            <li><a href="<?=base_url()?>Getdetail/<?php echo $value?>"><?php echo $value;?></a></li>
                                                                               <?php }?>
 									</ul>
                                                                         
@@ -60,7 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<h4>Popular Brands</h4>
 									<ul>
 										 <?php foreach($brand as $key => $value) {?>
-										 <li><a href="<?=base_url()?>welcome/getdetail/<?php echo $value?>"><?php echo $value;?></a></li>
+										 <li><a href="<?=base_url()?>Getdetail/<?php echo $value?>"><?php echo $value;?></a></li>
                                                                               <?php }?>
 										
 									</ul>	

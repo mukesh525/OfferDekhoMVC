@@ -15,10 +15,12 @@ class Welcome extends CI_Controller {
                 $this->load->view('templates/footer');
         }
          function getdetail($category) {
-                $selection['selections']= $category;
+                $result1=$this->products->getProductsByCategory($category); 
+                $selection['selections']= $result1;
                 $this->load->view('templates/product',$selection);
                 $this->load->view('templates/offers');
                 $this->load->view('templates/footer');
+             
               }
              
          function loadheader(){
