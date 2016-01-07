@@ -14,8 +14,16 @@ class Welcome extends CI_Controller {
                 $this->load->view('templates/offers');
                 $this->load->view('templates/footer');
         }
-         function getdetail($category) {
-                $result1=$this->products->getProductsByCategory($category); 
+         function getType($type) {
+                $result1=$this->products->getProductsByType($type); 
+                $selection['selections']= $result1;
+                $this->load->view('templates/product',$selection);
+                $this->load->view('templates/offers');
+                $this->load->view('templates/footer');
+             
+              }
+               function getBrands($brand) {
+                $result1=$this->products->getProductsByBrand($brand); 
                 $selection['selections']= $result1;
                 $this->load->view('templates/product',$selection);
                 $this->load->view('templates/offers');

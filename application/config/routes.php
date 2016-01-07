@@ -42,7 +42,9 @@ $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 //$route['Getdetail/(.*)'] = '/welcome/getdetail/$1';
 // $route['OfferDekhoMVC/(:any)'] = "welcome/getdetail/";
- $route['Getdetail/(.*)']='welcome/getdetail/$1';
+ $route['GetType/(.*)']='welcome/getType/$1';      
+ $route['GetBrands/(.*)']='welcome/getBrands/$1';  
+
 
 
 /* End of file routes.php */
