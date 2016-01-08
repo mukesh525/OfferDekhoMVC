@@ -136,7 +136,7 @@ width: 250px;
 </head>
 <body>
 <div id="login1">
-    <center><h4 style="margin-bottom: 4px;"><strong>Welcome to OfferDekho Admin.</strong></h4> </center>
+    <center><h4 style="margin-bottom: 4px;"><strong>Welcome to OfferDekho Admin</strong></h4> </center>
 <div class="logo1">
 <h1><a  href="<?=base_url()?>">Offer Dekho</a></h1></div>
 <center><p class="alert alert-success" role="alert">Please login to continue..</p></center>

@@ -18,6 +18,48 @@ body a{
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
 border-top: none;	
 }
+
+.top {
+        position:absolute;
+        left:0; right:0;
+        height: 92px;
+    }
+    .left {
+        position:absolute;
+        left:0; top:92px; bottom: 0;
+        width: 178px;
+    }
+    .main {
+        position: absolute;
+        left:178px; top:92px; right:0; bottom:0;
+    }
+
+.top { background: blue; }
+.left { background: red; }
+.main { background: yellow; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 a:hover, a:focus {
     color:#000;
     text-decoration:none;
