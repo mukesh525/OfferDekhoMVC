@@ -63,7 +63,7 @@ width: 108px;
 <div class="container">
 <a class="logo" style="float: left;"">OfferDekho Admin</a>
 <div id="login_form">
-<form action="admin/ login/" method="post">
+<form action="admin/ login" method="post">
 <label for="email">Email</label>
 <input type="text" name="l_email" value="<?=set_value('l_email') ?>" />
 <label for="password">Password</label>

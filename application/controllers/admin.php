@@ -10,13 +10,10 @@ $this->load->library('session');
 }
 public function index()
 {
-   $this->load->helper('url');
+    $this->logout();
    if(($this->session->userdata('user_id')!="")){
-      redirect(base_url().'admin');
-
-     echo $this->session->userdata('user_id');  
-
-   }
+     $this->load->view("admin/home");
+    }
   else{
    $this->load->view("admin/register_view");
  }
@@ -31,10 +28,11 @@ $this->index();
 else
 {
 $auth=$this->user_model->login($this->input->post('l_email'),$this->input->post('l_pass'));
+echo $auth;
 if($auth)
 {
- $this->load->view("admin/home");
-//redirect(site_url('home'));
+  $this->load->view("admin/home");
+
 }
 else
 {
@@ -56,17 +54,17 @@ array('field'=>'gender','label'=>'Gender','rules'=>'required')
 $this->form_validation->set_rules($rules);
 if($this->form_validation->run() == FALSE)
 {
-$this->load->view('admin/register_view');
+  $this->load->view('admin/register_view');
 }
 else
 {
 $this->user_model->register_user();
- $this->load->view('success');
+//$this->load->view('success');
 }
 }
 public function logout()
 {
-$this->session->sess_destroy();
-redirect(site_url());
+//$this->session->sess_destroy();
+// $this->load->view("admin/register_view");
 }
 }
