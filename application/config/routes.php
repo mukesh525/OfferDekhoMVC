@@ -44,7 +44,7 @@ $route['404_override'] = '';
 // $route['OfferDekhoMVC/(:any)'] = "welcome/getdetail/";
  $route['GetType/(.*)']='welcome/getType/$1';      
  $route['GetBrands/(.*)']='welcome/getBrands/$1';  
- $route['Admin']='welcome/admin/';  
+ $route['Admin']='admin';  
  
 
 
