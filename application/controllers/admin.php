@@ -8,10 +8,13 @@ $this->load->model('user_model');
 }
 
 public function index(){
+    
+    echo 'Index function get called';
 if(($this->session->userdata('user_id')!="")){
-redirect(site_url('home'));
+redirect(site_url('admin/home'));
 }
 else{
+     echo 'Index function get called';
 $this->load->view("admin/register_view");
 }
 }
