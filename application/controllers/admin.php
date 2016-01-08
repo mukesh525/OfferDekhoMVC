@@ -1,21 +1,21 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Amin extends CI_Controller {
+class Admin extends CI_Controller {
     
 public function __construct(){
 parent::__construct();
-$this->load->library('form_validation');
-$this->load->model('user_model');
+ $this->load->library('form_validation');
+ $this->load->model('user_model');
 }
 
 public function index(){
     
-    echo 'Index function get called';
+  
 if(($this->session->userdata('user_id')!="")){
 redirect(site_url('admin/home'));
 }
 else{
-     echo 'Index function get called';
-$this->load->view("admin/register_view");
+  //  echo 'Index function get called';
+   $this->load->view("admin/register_view");
 }
 }
 
