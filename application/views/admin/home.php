@@ -5,7 +5,7 @@
 </head>
 <body>
 <div>
-<a href="admin/logout" style="float: right;">logout</a>
+<a href="<?php echo site_url('admin/logout');?>" style="float: right;">logout</a>
 </div>
 <div>
 <?php echo "Welcome ".$this->session->userdata('username');?>
