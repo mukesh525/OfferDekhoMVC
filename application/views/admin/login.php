@@ -1,32 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
-    "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>OfferDekho Admin Login Form</title>
-</head>
-<body>
-    <center>
-        <div style="margin-top: 10%">
-    <form method="post" action="validate_login.php" >
-        <table border="1" >
-            <tr>
-                <td><label for="users_email">Email</label></td>
-                <td><input type="text" 
-                  name="users_email" id="users_email"></td>
-            </tr>
-            <tr>
-                <td><label for="users_pass">Password</label></td>
-                <td><input name="users_pass" 
-                  type="password" id="users_pass"></input></td>
-            </tr>
-            <tr>
-                <td><input type="submit" value="Submit"/>
-                <td><input type="reset" value="Reset"/>
-            </tr>
-        </table>
-    </form>
-            </div>
-    </center>
-</body>
-</html>
+<?php echo form_open(base_url()."admin/login"); ?>
+    <div class="bs-example">
+        <div class="col-md-2">
+            <label class="sr-only" for="email">Email     :</label>
+             <input type="text" class="form-control" name="l_email" placeholder="Email" value="<?=set_value('l_email') ?>">
+        </div>
+        <div class="col-md-2">
+            <label class="sr-only" for="password">Password:</label>
+            <input type="password" class="form-control" name="l_pass" placeholder="Password" value="">
+        </div>
+        <button type="submit" class="btn btn-default" name="signin" value="Sign in">Sign in</button>
+    </div>
+    <?php echo form_close(); ?> 
