@@ -1,13 +1,3 @@
---
--- Database: `OfferDekho`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `brand`
---
-
 CREATE TABLE IF NOT EXISTS `brand` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(250) NOT NULL,
@@ -101,3 +91,46 @@ CREATE TABLE IF NOT EXISTS `products` (
 --
 -- Dumping data for table `products`
 --
+
+INSERT INTO `products` (`id`, `name`, `discount`, `image`, `location`, `category`, `brand`) VALUES
+(5, 'Lights 1', 50, 'p1.jpg', 'Banagalore near supermarket', 10, 6),
+(6, 'Lights 2', 20, 'p2.jpg', 'Bangalore startbazar', 10, 6),
+(7, 'Lights 3', 10, 'p3.jpg', 'Bangalore startbazar', 10, 6),
+(8, 'Lights 4', 60, 'p4.jpg', 'Bangalore startbazar', 10, 6),
+(9, 'Lights 5', 10, 'p5.jpg', 'Bangalore startbazar', 10, 6),
+(10, 'Lights 6', 80, 'p6.jpg', 'Bangalore startbazar', 10, 6),
+(11, 'Lights 7', 90, 'p7.jpg', 'Bangalore startbazar', 10, 6),
+(12, 'Lights 8', 50, 'p8.jpg', 'Bangalore startbazar', 10, 6),
+(13, 'Lights 9', 30, 'p9.jpg', 'Bangalore startbazar', 10, 6),
+(14, 'Lights 10', 40, 'p10.jpg', 'Bangalore startbazar', 10, 6),
+(15, 'Lights 11', 60, 'p11.jpg', 'Bangalore startbazar', 10, 6),
+(16, 'Lights 12', 30, 'p12.jpg', 'Bangalore startbazar', 10, 6);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(32) NOT NULL,
+  `email` varchar(32) NOT NULL,
+  `password` varchar(32) NOT NULL,
+  `gender` varchar(8) NOT NULL,
+  `registered` varchar(16) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `gender`, `registered`) VALUES
+(6, 'vbngn', 'root@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'male', '1452253436'),
+(7, 'root', 'mukesh@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'male', '1452253750'),
+(8, 'root1', 'root1@gmail.com', 'f94c017857ac124ddc8cdf22f7930652', 'male', '1452255397');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
