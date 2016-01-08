@@ -34,9 +34,9 @@ if($auth){
 
 }else
 {
-   //$this->index();
-   $this->load->view("admin/login");
-   $this->load->view("admin/errorview");
+   $data['error']="false";
+   $this->load->view("admin/login",$data);
+  // $this->load->view("admin/errorview");
 }
 }
 }public function register()
