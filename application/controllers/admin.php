@@ -30,7 +30,7 @@ $this->index();
 else{
 $auth=$this->user_model->login($this->input->post('l_email'),$this->input->post('l_pass'));
 if($auth){
-redirect(site_url('home'));
+redirect(site_url('admin/home'));
 }else{
 $this->index();
  }
