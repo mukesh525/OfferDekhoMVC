@@ -9,6 +9,7 @@ class User_model extends CI_Model {
 
 
 public function register_user(){
+    echo 'register user module entered';
 $data=array(
 'username'=>$this->input->post('username'),
 'email'=>$this->input->post('email'),
