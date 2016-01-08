@@ -61,9 +61,9 @@ width: 108px;
 <body>
 <div id="header" >
 <div class="container">
-<a class="logo" style="float: left;" href="http://www.tutsmore.com">Tutsmore</a>
+<a class="logo" style="float: left;"">OfferDekho Admin</a>
 <div id="login_form">
-<form action="<?=site_url('user/login')?>" method="post">
+<form action="<?=site_url('admin/login')?>" method="post">
 <label for="email">Email</label>
 <input type="text" name="l_email" value="<?=set_value('l_email') ?>" />
 <label for="password">Password</label>
@@ -76,7 +76,7 @@ width: 108px;
 <div id="content" class="container">
 <div id="register_form">
 <h1>Sign Up</h1>
-<form action="<?=site_url('user/do_register')?>" method="post">
+<form action="<?=site_url('admin/do_register')?>" method="post">
 <label for="username">User Name</label>
 <input type="text" name="username" value="<?=set_value('username') ?>"/>
 <label for="email">Email</label>
