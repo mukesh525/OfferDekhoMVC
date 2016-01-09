@@ -7,13 +7,63 @@ $this->load->library('form_validation');
 $this->load->model('user_model');
 $this->load->library('session');
 $this->load->helper('url');
+$this->load->helper('form');
+$this->load->database();
+
 }
 public function index()
 {
   //  $this->logout();
    if(($this->session->userdata('user_id')!="")){
      $this->load->view("admin/dashboard");
+     //set validation rules
+    $this->form_validation->set_rules('employeeno', 'Employee No', 'trim|required|numeric');
+    $this->form_validation->set_rules('employeename', 'Employee Name', 'trim|required|xss_clean|callback_alpha_only_space');
+    $this->form_validation->set_rules('department', 'Department', 'callback_combo_check');
+    $this->form_validation->set_rules('designation', 'Designation', 'callback_combo_check');
+    
+    if ($this->form_validation->run() == FALSE)
+    {
+        //fail validation
+        $this->load->view('employee_view', $data);
     }
+    else
+    {
+        //pass validation
+        $data = array(
+            'employee_no' => $this->input->post('employeeno'),
+            'employee_name' => $this->input->post('employeename'),
+            'department_id' => $this->input->post('department'),
+            'designation_id' => $this->input->post('designation'),
+            'hired_date' => @date('Y-m-d', @strtotime($this->input->post('hireddate'))),
+            'salary' => $this->input->post('salary'),
+        );
+
+        //insert the form data into database
+        $this->db->insert('tbl_employee', $data);
+
+        //display success message
+        $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Employee details added to Database!!!</div>');
+        redirect('employee/index');
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   }
   else{
   // $this->load->view("admin/register_view");
    $this->load->view("admin/login");
@@ -30,7 +80,12 @@ if($this->form_validation->run() == FALSE){
 else{
 $auth=$this->user_model->login($this->input->post('l_email'),$this->input->post('l_pass'));
 if($auth){
-  $this->load->view("admin/dashboard");
+  
+  $data['category'] = $this->user_model->get_category() ;
+  $data['brand'] = $this->user_model->get_brandname();
+  $this->load->view("admin/dashboard",$data);
+  
+  print_r($data);
 
 }else
 {
@@ -70,6 +125,71 @@ public function logout()
 {
  $this->session->sess_destroy();
   $this->load->view("admin/login");
+   
  //$this->load->view("admin/register_view");
+}
+
+public function DeleteBrand()
+{
+    print_r($_POST);
+   
+ //$this->load->view("admin/register_view");
+}
+public function AddBrand()
+{
+    print_r($_POST);
+   
+ //$this->load->view("admin/register_view");
+}
+public function DeleteCategory()
+{
+    print_r($_POST);
+   
+ //$this->load->view("admin/register_view");
+}
+public function AddCategory()
+{
+    print_r($_POST);
+   
+ //$this->load->view("admin/register_view");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//custom validation function for dropdown input
+function combo_check($str)
+{
+    if ($str == '-SELECT-')
+    {
+        $this->form_validation->set_message('combo_check', 'Valid %s Name is required');
+        return FALSE;
+    }
+    else
+    {
+        return TRUE;
+    }
+}
+
+//custom validation function to accept only alpha and space input
+function alpha_only_space($str)
+{
+    if (!preg_match("/^([-a-z ])+$/i", $str))
+    {
+        $this->form_validation->set_message('alpha_only_space', 'The %s field must contain only alphabets or spaces');
+        return FALSE;
+    }
+    else
+    {
+        return TRUE;
+    }
 }
 }
