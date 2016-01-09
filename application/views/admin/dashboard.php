@@ -60,33 +60,52 @@
         echo form_open("admin/AddBrand", $attributes);?>
         <fieldset>
             
-            <div class="form-group">
             <div class="row colbox">
             
             <div class="col-lg-4 col-sm-4">
                 <label for="brand" class="control-label">Brand Name</label>
             </div>
-            <div class="col-lg-8 col-sm-8">
-                <input id="brand_name" name="brand_name" placeholder="brand Name" type="text" class="form-control"  value="<?php echo set_value('employeeno'); ?>" />
+                <div class="col-lg-8 col-sm-8"style="margin-top: -2%;">
+                <input id="brand_name" name="brand_name" placeholder="Brand Name" type="text" class="form-control"  value="<?php echo set_value('employeeno'); ?>" />
                 <span class="text-danger"><?php echo form_error('category_name'); ?></span>
             </div>
-            </div>
-            </div>
-            <div class="form-group">
-            <div class="row colbox">
+                   <?php if(isset($berror)){?>
+                <div class="alert alert-danger" role="alert" style="margin-left: 32%;; margin-top: 6%;background-color: #fff; border-color: #fff;color: #a94442;">
+              <strong>Oh snap!</strong> Brand Already Exists..!!
+			   </div>
+               <?php }?>
+                <?php if(isset($bsucess)){?>
+                <div class="alert alert-danger" role="alert" style="margin-left: 18%;; margin-top: 6%;background-color: #fff; border-color: #fff;color: #5FA942;">
+              <strong>Oh Good!</strong> Brand added sucessfully!!
+			   </div>
+               <?php }?>
+                <?php if(isset($bempty)){?>
+                <div class="alert alert-danger" role="alert" style="margin-left: 18%;; margin-top: 6%;background-color: #fff; border-color: #fff;color: #a94442;">
+              <strong>Oops!!</strong> Brand Name is Empty!!
+			   </div>
+               <?php }?>
             </div>
             </div>
             
+            </div>
+        </div>
+            
+            
             <div class="form-group">
-            <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left">
-                <input id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Insert" />
+                <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left" >
+                    <input style="margin-top: -46%;
+                           color: #fff;
+                           background-color: #0275d8;
+                           border-color: #0275d8;
+                            margin-left: -6%"
+                      id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Insert" />
             </div>
             </div>
         </fieldset>
         <?php echo form_close(); ?>
         <?php echo $this->session->flashdata('msg'); ?>
         </div>
-          <div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="margin-top: 75px;margin-left: 12%;margin-top: 8%;width: 34%;">
+          <div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="width: 34%; margin-left: 62%;margin-top: -28%">
         <legend>Delete Brand</legend>
       <?php 
         $attributes = array("class" => "form-horizontal", "id" => "employeeform", "name" => "employeeform");
@@ -121,7 +140,7 @@
         <?php echo $this->session->flashdata('msg'); ?>
         </div>
 <div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="    float: right;
-    margin-top: 8%;
+    margin-top: -9%;
     width: 37%;">
         <legend>Delete Category</legend>
        <?php 
@@ -156,9 +175,10 @@
         <?php echo form_close(); ?>
         <?php echo $this->session->flashdata('msg'); ?>
         </div>
-          <div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="margin-left: 15%;
-    margin-top: -15%;
+          <div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="
     width: 37%;
+    margin-left: 17%;
+    margin-top: -12%;
     float: left;;">
         <legend>Add Category</legend>
       <?php 
@@ -178,12 +198,17 @@
             </div>
                 <?php if(isset($error)){?>
                 <div class="alert alert-danger" role="alert" style="margin-left: 84px; margin-top: 43px;background-color: #fff; border-color: #fff;color: #a94442;">
-              <strong>Oh snap!</strong> Category Name Already Exists..!!
+              <strong>Oh snap!</strong> Category Already Exists..!!
 			   </div>
                <?php }?>
                 <?php if(isset($sucess)){?>
                 <div class="alert alert-danger" role="alert" style="margin-left: 61px;; margin-top: 43px; background-color: #fff; border-color: #fff;color: #5FA942;">
-              <strong>Oh Good!</strong> Category Name added sucessfully!!
+              <strong>Oh Good!</strong> Category added sucessfully!!
+			   </div>
+               <?php }?>
+                 <?php if(isset($cempty)){?>
+                <div class="alert alert-danger" role="alert" style="margin-left: 18%;; margin-top: 6%;background-color: #fff; border-color: #fff;color: #a94442;">
+              <strong>Oops!!</strong> Category Name is Empty!!
 			   </div>
                <?php }?>
             </div>
