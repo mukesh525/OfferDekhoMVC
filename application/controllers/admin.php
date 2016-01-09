@@ -12,7 +12,7 @@ public function index()
 {
   //  $this->logout();
    if(($this->session->userdata('user_id')!="")){
-     $this->load->view("admin/home");
+     $this->load->view("admin/dashboard");
     }
   else{
   // $this->load->view("admin/register_view");
@@ -30,7 +30,7 @@ if($this->form_validation->run() == FALSE){
 else{
 $auth=$this->user_model->login($this->input->post('l_email'),$this->input->post('l_pass'));
 if($auth){
-  $this->load->view("admin/home");
+  $this->load->view("admin/dashboard");
 
 }else
 {
