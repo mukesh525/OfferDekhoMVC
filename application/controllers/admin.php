@@ -1,6 +1,7 @@
 <?php
 
 class Admin extends CI_Controller {
+ var $data;
 public function __construct(){ 
    parent::__construct();
 $this->load->library('form_validation');
@@ -14,9 +15,15 @@ $this->load->database();
 public function index()
 {
   //  $this->logout();
+    
+    
+   $this->data['category'] = $this->user_model->get_category() ;
+   $this->data['brand'] = $this->user_model->get_brandname();
+ 
    if(($this->session->userdata('user_id')!="")){
-     $this->load->view("admin/dashboard");
+       
      //set validation rules
+    $this->load->view('admin/dashboard', $this->data);   
     $this->form_validation->set_rules('employeeno', 'Employee No', 'trim|required|numeric');
     $this->form_validation->set_rules('employeename', 'Employee Name', 'trim|required|xss_clean|callback_alpha_only_space');
     $this->form_validation->set_rules('department', 'Department', 'callback_combo_check');
@@ -24,8 +31,7 @@ public function index()
     
     if ($this->form_validation->run() == FALSE)
     {
-        //fail validation
-        $this->load->view('employee_view', $data);
+       // $this->load->view('admin/dashboard', $data);
     }
     else
     {
@@ -49,20 +55,7 @@ public function index()
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  
    }
   else{
   // $this->load->view("admin/register_view");
@@ -81,15 +74,15 @@ else{
 $auth=$this->user_model->login($this->input->post('l_email'),$this->input->post('l_pass'));
 if($auth){
   
-  $data['category'] = $this->user_model->get_category() ;
-  $data['brand'] = $this->user_model->get_brandname();
+ // $data['category'] = $this->user_model->get_category() ;
+ // $data['brand'] = $this->user_model->get_brandname();
   $this->load->view("admin/dashboard",$data);
   
   print_r($data);
 
 }else
 {
-   $data['error']="false";
+  $this->data['error']="false";
    $this->load->view("admin/login",$data);
   // $this->load->view("admin/errorview");
 }
@@ -148,10 +141,21 @@ public function DeleteCategory()
  //$this->load->view("admin/register_view");
 }
 public function AddCategory()
-{
-    print_r($_POST);
+{   
+   // print_r($_POST);
+    $boolean = $this->user_model->add_category($_POST['category_name']);
+    if($boolean)
+    {  $this->data['sucess']='sucess';
+      // $this->load->view("admin/index");
+     $this->index();
+    }else{
+        $this->data['error']='error';
+    // $this->load->view("admin/");
+         $this->index();
+      
+    }
    
- //$this->load->view("admin/register_view");
+    
 }
 
 
