@@ -18,8 +18,8 @@ public function index()
   //  $this->logout();
     
     
- //  $this->data['category'] = $this->user_model->get_category() ;
- //  $this->data['brand'] = $this->user_model->get_brandname();
+    $this->data['category'] = $this->user_model->get_category() ;
+    $this->data['brand'] = $this->user_model->get_brandname();
  
    if(($this->session->userdata('user_id')!="")){
        
@@ -125,6 +125,8 @@ public function logout()
 
 public function DeleteBrand()
 {
+       
+        
     if($_POST['brand']!='-SELECT-')
     {
         print_r($_POST);
@@ -142,6 +144,8 @@ public function DeleteBrand()
       $this->index();
       
    }
+   
+   echo $this->db->_error_message();
 }
 public function AddBrand()
 {     //echo $_POST['brand_name'];
