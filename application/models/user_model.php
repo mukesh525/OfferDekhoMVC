@@ -40,4 +40,46 @@ $data=array(
     }
      return false;
     }
+    
+    
+    
+    function get_brandname()     
+    { 
+        $this->db->select('Id');
+        $this->db->select('Name');
+        $this->db->from('brand');
+        $query = $this->db->get();
+        $result = $query->result();
+
+        //array to store department id & department name
+        $brand_id = array('-SELECT-');
+        $brand_name = array('-SELECT-');
+
+        for ($i = 0; $i < count($result); $i++)
+        {
+            array_push($brand_id , $result[$i]->Id);
+            array_push($brand_name, $result[$i]->Name);
+        }
+        return $brand_result = array_combine($brand_id, $brand_name);
+    }
+     //get Category table to populate the designation dropdown
+    function get_category()     
+    { 
+        $this->db->select('Id');
+        $this->db->select('Name');
+        $this->db->from('category');
+        $query = $this->db->get();
+        $result = $query->result();
+
+        $category_id = array('-SELECT-');
+        $category_name = array('-SELECT-');
+
+        for ($i = 0; $i < count($result); $i++)
+        {
+            array_push($category_id, $result[$i]->Id);
+            array_push($category_name, $result[$i]->Name);
+        }
+        return $category_result = array_combine($category_id, $category_name);
+    }
 }
+    
