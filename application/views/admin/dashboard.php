@@ -51,10 +51,156 @@
             </ul>
         </div>
         <!--/col-->
+        <div class="container">
+    <div class="row">
+        <div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="margin-top: 75px;margin-left: 12%;margin-top: 4%;width: 37%;    margin-left: 2%;">
+        <legend>Add Brand</legend>
+        <?php 
+        $attributes = array("class" => "form-horizontal", "id" => "employeeform", "name" => "employeeform");
+        echo form_open(" admin/AddBrand", $attributes);?>
+        <fieldset>
+            
+            <div class="form-group">
+            <div class="row colbox">
+            
+            <div class="col-lg-4 col-sm-4">
+                <label for="brand" class="control-label">Brand Name</label>
+            </div>
+            <div class="col-lg-8 col-sm-8">
+                <input id="brand_name" name="brand_name" placeholder="brand Name" type="text" class="form-control"  value="<?php echo set_value('employeeno'); ?>" />
+                <span class="text-danger"><?php echo form_error('category_name'); ?></span>
+            </div>
+            </div>
+            </div>
+            <div class="form-group">
+            <div class="row colbox">
+            </div>
+            </div>
+            
+            <div class="form-group">
+            <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left">
+                <input id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Insert" />
+            </div>
+            </div>
+        </fieldset>
+        <?php echo form_close(); ?>
+        <?php echo $this->session->flashdata('msg'); ?>
+        </div>
+          <div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="margin-top: 75px;margin-left: 12%;margin-top: 4%;width: 34%;">
+        <legend>Delete Brand</legend>
+      <?php 
+        $attributes = array("class" => "form-horizontal", "id" => "employeeform", "name" => "employeeform");
+        echo form_open("admin/DeleteBrand", $attributes);?>
+        <fieldset>
+            
+            <div class="form-group">
+            <div class="row colbox">
+            
+            <div class="col-lg-4 col-sm-4">
+                <label for="Brand Name" class="control-label">Brand Name</label>
+            </div>
+           <div class="col-lg-8 col-sm-8"><?php
+                $attributes = 'class = "form-control" id = "brand"';
+                echo form_dropdown('brand',$brand,set_value('brand'),$attributes);?>
+                <span class="text-danger"><?php echo form_error('brand'); ?></span>
+            </div>
+            </div>
+            </div>
+            <div class="form-group">
+            <div class="row colbox">
+            </div>
+            </div>
+            
+            <div class="form-group">
+            <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left">
+                <input id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Delete" />
+            </div>
+            </div>
+        </fieldset>
+        <?php echo form_close(); ?>
+        <?php echo $this->session->flashdata('msg'); ?>
+        </div>
+<div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="    float: right;
+    margin-top: 8%;
+    width: 37%;">
+        <legend>Delete Category</legend>
+       <?php 
+        $attributes = array("class" => "form-horizontal", "id" => "employeeform", "name" => "employeeform");
+        echo form_open("admin/DeleteCategory", $attributes);?>
+        <fieldset>
+            
+            <div class="form-group">
+            <div class="row colbox">
+            
+            <div class="col-lg-4 col-sm-4">
+                <label for="Category Name" class="control-label">Category Name</label>
+            </div>
+                <div class="col-lg-8 col-sm-8" style="width:55.666667%"><?php
+                $attributes = 'class = "form-control" id = "category"';
+                echo form_dropdown('category',$category,set_value('category'),$attributes);?>
+                <span class="text-danger"><?php echo form_error('category'); ?></span>
+            </div>
+            </div>
+            </div>
+            <div class="form-group">
+            <div class="row colbox">
+            </div>
+            </div>
+            
+            <div class="form-group">
+            <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left">
+                <input id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Delete" />
+            </div>
+            </div>
+        </fieldset>
+        <?php echo form_close(); ?>
+        <?php echo $this->session->flashdata('msg'); ?>
+        </div>
+          <div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="margin-left: 15%;
+    margin-top: -15%;
+    width: 37%;
+    float: left;;">
+        <legend>Add Category</legend>
+      <?php 
+        $attributes = array("class" => "form-horizontal", "id" => "employeeform", "name" => "employeeform");
+        echo form_open("admin/AddCategory", $attributes);?>
+        <fieldset>
+            
+            <div class="form-group">
+            <div class="row colbox">
+            
+            <div class="col-lg-4 col-sm-4">
+                <label for="Category Name" class="control-label">Category Name</label>
+            </div>
+                  <div class="col-lg-8 col-sm-8">
+                <input id="brand_name" name="category_name" placeholder="Category Name" type="text" class="form-control"  value="<?php echo set_value('employeeno'); ?>" />
+                <span class="text-danger"><?php echo form_error('category_name'); ?></span>
+            </div>
+                
+            </div>
+            </div>
+            <div class="form-group">
+            <div class="row colbox">
+            </div>
+            </div>
+            
+            <div class="form-group">
+            <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left">
+                <input id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Insert" />
+            </div>
+            </div>
+        </fieldset>
+        <?php echo form_close(); ?>
+        <?php echo $this->session->flashdata('msg'); ?>
+        </div>
+    </div>
+            
+</div>
 
-        <div class="col-md-9 col-lg-10 main" style="margin-top: 50px;">
 
-            <!--toggle sidebar button-->
+<!--        <div class="col-md-9 col-lg-10 main" style="margin-top: 50px;">
+
+            toggle sidebar button
             <p class="hidden-md-up">
                 <button type="button" class="btn btn-primary-outline btn-sm" data-toggle="offcanvas"><i class="fa fa-chevron-left"></i> Menu</button>
             </p>
@@ -64,7 +210,8 @@
             </h1>
             <p class="lead"> <?php echo "Welcome ".$this->session->userdata('username');?></p>
 
-       
+    
+</div>-->
         </div>
         <!--/main col-->
     </div>
