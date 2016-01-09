@@ -53,11 +53,11 @@
         <!--/col-->
         <div class="container">
     <div class="row">
-        <div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="margin-top: 75px;margin-left: 12%;margin-top: 4%;width: 37%;    margin-left: 2%;">
+        <div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="margin-top: 75px;margin-left: 12%;margin-top: 8%;width: 37%;    margin-left: 2%;">
         <legend>Add Brand</legend>
         <?php 
         $attributes = array("class" => "form-horizontal", "id" => "employeeform", "name" => "employeeform");
-        echo form_open(" admin/AddBrand", $attributes);?>
+        echo form_open("admin/AddBrand", $attributes);?>
         <fieldset>
             
             <div class="form-group">
@@ -86,7 +86,7 @@
         <?php echo form_close(); ?>
         <?php echo $this->session->flashdata('msg'); ?>
         </div>
-          <div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="margin-top: 75px;margin-left: 12%;margin-top: 4%;width: 34%;">
+          <div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="margin-top: 75px;margin-left: 12%;margin-top: 8%;width: 34%;">
         <legend>Delete Brand</legend>
       <?php 
         $attributes = array("class" => "form-horizontal", "id" => "employeeform", "name" => "employeeform");
@@ -176,17 +176,29 @@
                 <input id="brand_name" name="category_name" placeholder="Category Name" type="text" class="form-control"  value="<?php echo set_value('employeeno'); ?>" />
                 <span class="text-danger"><?php echo form_error('category_name'); ?></span>
             </div>
-                
+                <?php if(isset($error)){?>
+                <div class="alert alert-danger" role="alert" style="margin-left: 84px; margin-top: 43px;background-color: #fff; border-color: #fff;color: #a94442;">
+              <strong>Oh snap!</strong> Category Name Already Exists..!!
+			   </div>
+               <?php }?>
+                <?php if(isset($sucess)){?>
+                <div class="alert alert-danger" role="alert" style="margin-left: 61px;; margin-top: 43px; background-color: #fff; border-color: #fff;color: #5FA942;">
+              <strong>Oh Good!</strong> Category Name added sucessfully!!
+			   </div>
+               <?php }?>
             </div>
             </div>
-            <div class="form-group">
             <div class="row colbox">
             </div>
             </div>
             
             <div class="form-group">
             <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left">
-                <input id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Insert" />
+                <input style="margin-top: -48px;
+    color: #fff;
+    background-color: #0275d8;
+    border-color: #0275d8;
+    margin-left: -56px;" id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Insert" />
             </div>
             </div>
         </fieldset>
