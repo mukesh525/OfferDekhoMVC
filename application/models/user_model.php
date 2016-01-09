@@ -121,11 +121,10 @@ $data=array(
         } 
     }
      function delete_brand($Id){ 
-         $num = $Id;
-         
-         $int = (int)$num;print_r($num);
-         $this->Id = $num;
-         $this->db->where('Id', $this);
+         $int = (is_numeric($_POST['brand']) ? (int)$_POST['brand'] : 0);
+          // print_r($int);
+        // $this->Id = $num;
+         $this->db->where('Id', $int);
          $this -> db -> delete('brand');
         if($this->db->affected_rows()>0){
             return true;
