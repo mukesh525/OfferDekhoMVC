@@ -81,5 +81,30 @@ $data=array(
         }
         return $category_result = array_combine($category_id, $category_name);
     }
+    
+    
+    
+     function add_category($category){ 
+      //  print_r($category);
+         //ALTER TABLE  `YOUR-TABLE` ORDER BY  `index`
+         $this->Name = $category;
+    
+         $this->db->insert('category', $this);
+       //  echo $this->db->_error_message();
+        
+//         $data = array(
+//        'Name'=>$category);
+//        $this->db->insert('category',$data);
+        if($this->db->affected_rows()>0){
+            return true;
+        }
+        else{
+            return false;
+        }
+     }
+    
+     function add_brand($brand){ 
+        
+    }
 }
     
