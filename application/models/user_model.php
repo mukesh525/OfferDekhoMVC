@@ -95,10 +95,38 @@ $data=array(
             return false;
         }
      }
+      function delete_category($Id){ 
+       //ALTER TABLE  `YOUR-TABLE` ORDER BY  `index`
+          $num = $Id;
+         $int = (int)$num;
+         $this->Id = $num;
+         $this->db->where('Id', $this);
+         $this -> db -> delete('category');
+        if($this->db->affected_rows()>0){
+            return true;
+        }
+        else{
+            return false;
+        } 
+     }
     
      function add_brand($brand){ 
          $this->Name = $brand;
          $this->db->insert('brand', $this);
+        if($this->db->affected_rows()>0){
+            return true;
+        }
+        else{
+            return false;
+        } 
+    }
+     function delete_brand($Id){ 
+         $num = $Id;
+         
+         $int = (int)$num;print_r($num);
+         $this->Id = $num;
+         $this->db->where('Id', $this);
+         $this -> db -> delete('brand');
         if($this->db->affected_rows()>0){
             return true;
         }
