@@ -129,8 +129,19 @@ public function DeleteBrand()
  //$this->load->view("admin/register_view");
 }
 public function AddBrand()
-{
-    print_r($_POST);
+{     //echo $_POST['brand_name'];
+      if($_POST['brand_name']!=""){
+      $boolean = $this->user_model->add_brand($_POST['brand_name']);
+      if($boolean)
+    {  $this->data['bsucess']='sucess';
+     $this->index();
+    }else{
+        $this->data['berror']='error';
+         $this->index();
+      }}
+      else{
+      $this->data['bempty']="bempty";
+      $this->index();}
    
  //$this->load->view("admin/register_view");
 }
@@ -143,6 +154,7 @@ public function DeleteCategory()
 public function AddCategory()
 {   
    // print_r($_POST);
+    if($_POST['category_name']!=""){
     $boolean = $this->user_model->add_category($_POST['category_name']);
     if($boolean)
     {  $this->data['sucess']='sucess';
@@ -152,21 +164,11 @@ public function AddCategory()
         $this->data['error']='error';
     // $this->load->view("admin/");
          $this->index();
-      
+    }}
+    else{
+      $this->data['cempty']="cempty";
+      $this->index();}
     }
-   
-    
-}
-
-
-
-
-
-
-
-
-
-
 
 
 //custom validation function for dropdown input
