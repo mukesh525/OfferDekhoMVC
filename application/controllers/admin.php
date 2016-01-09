@@ -10,15 +10,16 @@ $this->load->library('session');
 $this->load->helper('url');
 $this->load->helper('form');
 $this->load->database();
-
+$this->data['category'] = $this->user_model->get_category() ;
+$this->data['brand'] = $this->user_model->get_brandname();
 }
 public function index()
 {
   //  $this->logout();
     
     
-   $this->data['category'] = $this->user_model->get_category() ;
-   $this->data['brand'] = $this->user_model->get_brandname();
+ //  $this->data['category'] = $this->user_model->get_category() ;
+ //  $this->data['brand'] = $this->user_model->get_brandname();
  
    if(($this->session->userdata('user_id')!="")){
        
@@ -76,9 +77,9 @@ if($auth){
   
  // $data['category'] = $this->user_model->get_category() ;
  // $data['brand'] = $this->user_model->get_brandname();
-  $this->load->view("admin/dashboard",$data);
+  $this->load->view("admin/dashboard",$this->data);
   
-  print_r($data);
+//  print_r($data);
 
 }else
 {
@@ -124,9 +125,23 @@ public function logout()
 
 public function DeleteBrand()
 {
-    print_r($_POST);
-   
- //$this->load->view("admin/register_view");
+    if($_POST['brand']!='-SELECT-')
+    {
+        print_r($_POST);
+        $boolean = $this->user_model->delete_brand($_POST['brand']);
+          if($boolean){
+          $this->data['bdsucess']='sucess';
+          $this->index();
+         }else{
+          $this->data['bderror']='error';
+          $this->index();
+          }
+    }
+   else{
+      $this->data['bdempty']="bdempty";
+      $this->index();
+      
+   }
 }
 public function AddBrand()
 {     //echo $_POST['brand_name'];
