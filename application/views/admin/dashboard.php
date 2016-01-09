@@ -105,15 +105,14 @@
         <?php echo form_close(); ?>
         <?php echo $this->session->flashdata('msg'); ?>
         </div>
-          <div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="width: 34%; margin-left: 62%;margin-top: -28%">
+          <div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="width: 34%; margin-left: 62%;margin-top: -28%;">
         <legend>Delete Brand</legend>
       <?php 
         $attributes = array("class" => "form-horizontal", "id" => "employeeform", "name" => "employeeform");
         echo form_open("admin/DeleteBrand", $attributes);?>
         <fieldset>
             
-            <div class="form-group">
-            <div class="row colbox">
+            
             
             <div class="col-lg-4 col-sm-4">
                 <label for="Brand Name" class="control-label">Brand Name</label>
@@ -122,16 +121,31 @@
                 $attributes = 'class = "form-control" id = "brand"';
                 echo form_dropdown('brand',$brand,set_value('brand'),$attributes);?>
                 <span class="text-danger"><?php echo form_error('brand'); ?></span>
+                
+            </div>
+                 <?php if(isset($bderror)){?>
+                <div class="alert alert-danger" role="alert" style="margin-left: 32%;; margin-top: 6%;background-color: #fff; border-color: #fff;color: #a94442;">
+              <strong>Oh snap!</strong> An Error Occurred ..!!
+			   </div>
+               <?php }?>
+                <?php if(isset($bdsucess)){?>
+                <div class="alert alert-danger" role="alert" style="margin-left: 18%;; margin-top: 6%;background-color: #fff; border-color: #fff;color: #5FA942;">
+              <strong>Oh Good!</strong> Brand Deleted sucessfully!!
+			   </div>
+               <?php }?>
+                <?php if(isset($bdempty)){?>
+                <div class="alert alert-danger" role="alert" style="margin-left: 18%;; margin-top: 6%;background-color: #fff; border-color: #fff;color: #a94442;">
+              <strong>Oops!!</strong> Select Brand to Delete!!
+			   </div>
+               <?php }?>
             </div>
             </div>
-            </div>
-            <div class="form-group">
-            <div class="row colbox">
             </div>
             </div>
             
             <div class="form-group">
-            <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left">
+                <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left" style="margin-top: -17%;
+    margin-left: 75%;">
                 <input id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Delete" />
             </div>
             </div>
@@ -140,16 +154,13 @@
         <?php echo $this->session->flashdata('msg'); ?>
         </div>
 <div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="    float: right;
-    margin-top: -9%;
+    margin-top: -12%;
     width: 37%;">
         <legend>Delete Category</legend>
        <?php 
         $attributes = array("class" => "form-horizontal", "id" => "employeeform", "name" => "employeeform");
         echo form_open("admin/DeleteCategory", $attributes);?>
         <fieldset>
-            
-            <div class="form-group">
-            <div class="row colbox">
             
             <div class="col-lg-4 col-sm-4">
                 <label for="Category Name" class="control-label">Category Name</label>
@@ -159,35 +170,40 @@
                 echo form_dropdown('category',$category,set_value('category'),$attributes);?>
                 <span class="text-danger"><?php echo form_error('category'); ?></span>
             </div>
+                  <?php if(isset($bderror)){?>
+                <div class="alert alert-danger" role="alert" style="margin-left: 32%;; margin-top: 6%;background-color: #fff; border-color: #fff;color: #a94442;">
+              <strong>Oh snap!</strong> An Error Occurred ..!!
+			   </div>
+               <?php }?>
+                <?php if(isset($bdsucess)){?>
+                <div class="alert alert-danger" role="alert" style="margin-left: 18%; margin-top: 6%;background-color: #fff; border-color: #fff;color: #5FA942;">
+              <strong>Oh Good!</strong> Brand Deleted sucessfully!!
+			   </div>
+               <?php }?>
+                <?php if(isset($bdempty)){?>
+                <div class="alert alert-danger" role="alert" style="margin-left: 18%; margin-top: 6%;background-color: #fff; border-color: #fff;color: #a94442;">
+              <strong>Oops!!</strong> Select Brand to Delete!!
+			   </div>
+               <?php }?>
             </div>
-            </div>
-            <div class="form-group">
-            <div class="row colbox">
-            </div>
-            </div>
-            
-            <div class="form-group">
-            <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left">
-                <input id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Delete" />
-            </div>
-            </div>
+        <input style="float: right;
+    margin-top: -2%;
+    margin-right: 17%;" id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Delete" />
+           
         </fieldset>
         <?php echo form_close(); ?>
         <?php echo $this->session->flashdata('msg'); ?>
         </div>
           <div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="
     width: 37%;
-    margin-left: 17%;
-    margin-top: -12%;
+    margin-left: 18%;
+    margin-top: -13%;
     float: left;;">
         <legend>Add Category</legend>
       <?php 
         $attributes = array("class" => "form-horizontal", "id" => "employeeform", "name" => "employeeform");
         echo form_open("admin/AddCategory", $attributes);?>
         <fieldset>
-            
-            <div class="form-group">
-            <div class="row colbox">
             
             <div class="col-lg-4 col-sm-4">
                 <label for="Category Name" class="control-label">Category Name</label>
@@ -212,20 +228,13 @@
 			   </div>
                <?php }?>
             </div>
-            </div>
-            <div class="row colbox">
-            </div>
-            </div>
-            
-            <div class="form-group">
-            <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left">
-                <input style="margin-top: -48px;
+        <input style="margin-left: 31%;margin-top: -2%;
     color: #fff;
+    float: left;
     background-color: #0275d8;
-    border-color: #0275d8;
-    margin-left: -56px;" id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Insert" />
-            </div>
-            </div>
+    border-color: #0275d8;" id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Insert" />
+            
+      
         </fieldset>
         <?php echo form_close(); ?>
         <?php echo $this->session->flashdata('msg'); ?>
