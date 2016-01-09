@@ -37,7 +37,7 @@
 <div class="container-fluid" id="main">
     <div class="row row-offcanvas row-offcanvas-left">
         <div class="col-md-3 col-lg-2 sidebar-offcanvas" style="margin-top: 23px" id="sidebar" role="navigation">
-            <ul class="nav nav-pills nav-stacked">
+            <ul class="nav nav-pills nav-stacked" >
                 <li class="nav-item"><a class="nav-link" href="#">Add Category</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Add Brand</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Add Product</a></li>
@@ -93,11 +93,11 @@
             
             <div class="form-group">
                 <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left" >
-                    <input style="margin-top: -46%;
+                    <input style="margin-top: -47%;
                            color: #fff;
                            background-color: #0275d8;
                            border-color: #0275d8;
-                            margin-left: -6%"
+                            margin-left: -3%;"
                       id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Insert" />
             </div>
             </div>
@@ -186,9 +186,8 @@
 			   </div>
                <?php }?>
             </div>
-        <input style="float: right;
-    margin-top: -2%;
-    margin-right: 17%;" id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Delete" />
+        <input style="float: right;    margin-top: -1%;
+   margin-right: 17%;" id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Delete" />
            
         </fieldset>
         <?php echo form_close(); ?>
@@ -228,7 +227,7 @@
 			   </div>
                <?php }?>
             </div>
-        <input style="margin-left: 31%;margin-top: -2%;
+        <input style="margin-left: 33%;margin-top: -2%;
     color: #fff;
     float: left;
     background-color: #0275d8;
