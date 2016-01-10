@@ -69,7 +69,7 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
                 <?php $attributes = array("name" => "addadminform");
                 echo form_open("admin/do_register", $attributes);?>
                 <div class="form-group">
-                    <label for="uname">User Name</label>
+                    <label for="uname">Name</label>
                     <input class="form-control" name="uname" placeholder="User Name" type="text" value="<?php echo set_value('uname'); ?>" />
                     <span class="text-danger"><?php echo form_error('uname'); ?></span>
                 </div>
@@ -114,83 +114,7 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
             </div>
         </div>
     </div>  
-            
-<!--            
-     <table class="tg">
-      
-     <tr>
-        <th  >
-            <div style="width: 54%;margin-top: 25%;" id="sidebar" role="navigation">
-            <ul class="nav nav-pills nav-stacked" >
-                <li class="nav-item"><a class="nav-link" href="#">Brand/Category</a></li>
-                <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/register');?>">Add Admin</a></li>
-                <li class="nav-item"><a class="nav-link" href="">Delete Product</a></li>
-                <li class="nav-item"><a class="nav-link" href="">Delete Admin</a></li>
-                <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/logout');?>">Logout</a></li>
-               
-               </ul>
-           </div>
-          </th>
-         
-          <th>
-      <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4>Add Admin</h4>
-            </div>
-            <div class="panel-body">
-                <?php $attributes = array("name" => "addadminform");
-                echo form_open("admin/do_register", $attributes);?>
-                <div class="form-group">
-                    <label for="uname">User Name</label>
-                    <input class="form-control" name="uname" placeholder="User Name" type="text" value="<?php echo set_value('uname'); ?>" />
-                    <span class="text-danger"><?php echo form_error('uname'); ?></span>
-                </div>
-               <div class="form-group">
-                    <label for="email">Email ID</label>
-                    <input class="form-control" name="email" placeholder="Email-ID" type="text" value="<?php echo set_value('email'); ?>" />
-                    <span class="text-danger"><?php echo form_error('email'); ?></span>
-                </div>
-                
-               
-            </div>
-            <div class="form-group">
-                 <label for="gender">gender</label>
-                <input type="radio" name="gender" value="male" <?php echo set_radio('gender', 'male'); ?>/>Male
-                <input type="radio" name="gender" value="female" <?php echo set_radio('gender', 'female'); ?>/>Female
-                <span class="text-danger"><?php echo form_error('gender'); ?></span>
-            </div>
 
-                <div class="form-group">
-                    <label for="subject">Password</label>
-                    <input class="form-control" name="password" placeholder="Password" type="password" />
-                    <span class="text-danger"><?php echo form_error('password'); ?></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="subject">Confirm Password</label>
-                    <input class="form-control" name="cpassword" placeholder="Confirm Password" type="password" />
-                    <span class="text-danger"><?php echo form_error('cpassword'); ?></span>
-                </div>
-
-                <div class="form-group">
-                    <button name="submit" type="submit" class="btn btn-default">Add Admin</button>
-                    <button name="cancel" type="reset" class="btn btn-default">Cancel</button>
-                </div>
-                <?php echo form_close(); ?>
-                <?php echo $this->session->flashdata('msg'); ?>
-            </div>
-        </div>
-    </div>
-</div>  
-        
-             
-   </th>
-    
-  </tr>
-  
-</table>  -->
                    
 </div>
 
