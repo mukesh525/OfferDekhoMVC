@@ -97,10 +97,8 @@ $data=array(
      }
       function delete_category($Id){ 
        //ALTER TABLE  `YOUR-TABLE` ORDER BY  `index`
-          $num = $Id;
-         $int = (int)$num;
-         $this->Id = $num;
-         $this->db->where('Id', $this);
+          $int = (is_numeric($_POST['category']) ? (int)$_POST['category'] : 0);
+         $this->db->where('Id', $int);
          $this -> db -> delete('category');
         if($this->db->affected_rows()>0){
             return true;
