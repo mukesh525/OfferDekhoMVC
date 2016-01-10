@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Best Login Page design in html and css</title>
+<title>OfferDekho Admin Login</title>
 <style type="text/css">
 body {
 background-color: #f4f4f4;
