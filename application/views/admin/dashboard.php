@@ -54,8 +54,8 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
         <th  rowspan="2">
             <div style="width: 54%;margin-top: 25%;" id="sidebar" role="navigation">
             <ul class="nav nav-pills nav-stacked" >
-                <li class="nav-item"><a class="nav-link" href="#">Brand/Category</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Add Admin</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/login');?>">Brand/Category</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/register');?>">Add Admin</a></li>
                 <li class="nav-item"><a class="nav-link" href="">Delete Product</a></li>
                 <li class="nav-item"><a class="nav-link" href="">Delete Admin</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/logout');?>">Logout</a></li>
