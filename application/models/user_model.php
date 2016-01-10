@@ -1,27 +1,17 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class User_model extends CI_Model {
-  
-    
-    public function __construct(){
+   public function __construct(){
       $this->load->database();
-     }
-
-
-
-public function register_user(){
-    echo 'register user module entered';
-$data=array(
-'username'=>$this->input->post('username'),
-'email'=>$this->input->post('email'),
-'password'=>md5($this->input->post('password')),
-'gender'=>$this->input->post('gender'),
-'registered'=>time()
-);
+ }
+public function register_user($data){
    print_r($data);
-   $insert =  $this->db->insert('users',$data);
-   echo $this->db->_error_message();
-   //return $insert;
-   return true;
+   $query=$this->db->insert('users',$data);
+  // echo $this->db->_error_message();
+     if($query){
+     return true;}
+    else{
+     return false;
+     }
 }
 
     function login($email,$password){
@@ -131,5 +121,6 @@ $data=array(
             return false;
         } 
     }
+    
 }
     
