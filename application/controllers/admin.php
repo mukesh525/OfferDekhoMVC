@@ -166,7 +166,39 @@ public function AddBrand()
 }
 public function DeleteCategory()
 {
-    print_r($_POST);
+  if($_POST['category']!='-SELECT-')
+    {
+        print_r($_POST);
+        $boolean = $this->user_model->delete_category($_POST['category']);
+          if($boolean){
+          $this->data['casucess']='casucess';
+          $this->index();
+         }else{
+          $this->data['caerror']='caerror';
+          $this->index();
+          }
+    }
+   else{
+      $this->data['caempty']="caempty";
+      $this->index();
+      
+   }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
    
  //$this->load->view("admin/register_view");
 }
