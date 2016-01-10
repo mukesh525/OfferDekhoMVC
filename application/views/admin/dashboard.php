@@ -8,7 +8,17 @@
     <meta name="generator" content="Codeply">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css" />
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
-
+ <style type="text/css">
+.tg  {margin-top: 2%;width: 100%;margin-left: -4%;border-collapse: collapse;border-spacing: 0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-baqh{text-align:center;vertical-align:top;width: 40%;padding-top: 5%}
+.tg .tg-yw4l{vertical-align:top}
+.form-control1 {width: 55%;margin-left: 3%;margin-bottom: 2%;padding: .375rem .75rem;font-size: 1rem; line-height: 1.5;color: #55595c;
+background-color: #fff;background-image: none;border: .0625rem solid #ccc;border-radius: .25rem;}
+.form-control2 {width:48%;margin-left: -4%;margin-bottom: 2%;padding: .375rem .75rem;font-size: 1rem; line-height: 1.5;color: #55595c;
+background-color: #fff;background-image: none;border: .0625rem solid #ccc;border-radius: .25rem;}
+</style>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body >
@@ -34,9 +44,8 @@
         </ul>
     </div>
 </nav>
-<div class="container-fluid" id="main">
-    <div class="row row-offcanvas row-offcanvas-left">
-        <div class="col-md-3 col-lg-2 sidebar-offcanvas" style="margin-top: 23px" id="sidebar" role="navigation">
+   
+<!--        <div class="col-md-3 col-lg-2 sidebar-offcanvas" style="margin-top: 23px" id="sidebar" role="navigation">
             <ul class="nav nav-pills nav-stacked" >
                 <li class="nav-item"><a class="nav-link" href="#">Add Category</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Add Brand</a></li>
@@ -49,218 +58,206 @@
                 <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/logout');?>">Logout</a></li>
                
             </ul>
-        </div>
+        </div>-->
         <!--/col-->
         <div class="container">
-    <div class="row">
-        <div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="margin-top: 75px;margin-left: 12%;margin-top: 8%;width: 37%;    margin-left: 2%;">
-        <legend>Add Brand</legend>
+    
+         
+     <table class="tg">
+      
+     <tr>
+        <th  rowspan="2">
+            <div style="width: 54%;padding-top:-5%;" id="sidebar" role="navigation">
+            <ul class="nav nav-pills nav-stacked" >
+                <li class="nav-item"><a class="nav-link" href="#">Add Category</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Add Brand</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Add Product</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Add Admin</a></li>
+                <li class="nav-item"><a class="nav-link" href="">Delete Category</a></li>
+                <li class="nav-item"><a class="nav-link" href="">Delete Brand</a></li>
+                <li class="nav-item"><a class="nav-link" href="">Delete Product</a></li>
+                <li class="nav-item"><a class="nav-link" href="">Delete Admin</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/logout');?>">Logout</a></li>
+               
+               </ul>
+           </div>
+          </th>
+         
+    <th class="tg-baqh">
+        <div class="row">
+            <div style="width: 50%;background: #9999ff;margin-left: 24%;">
+                <legend><font size="5" color="white">Add Brand</font></legend>
+            </div> 
         <?php 
         $attributes = array("class" => "form-horizontal", "id" => "employeeform", "name" => "employeeform");
         echo form_open("admin/AddBrand", $attributes);?>
         <fieldset>
             
-            <div class="row colbox">
-            
-            <div class="col-lg-4 col-sm-4">
-                <label for="brand" class="control-label">Brand Name</label>
-            </div>
-                <div class="col-lg-8 col-sm-8"style="margin-top: -2%;">
-                <input id="brand_name" name="brand_name" placeholder="Brand Name" type="text" class="form-control"  value="<?php echo set_value('employeeno'); ?>" />
-                <span class="text-danger"><?php echo form_error('category_name'); ?></span>
+            <div style="float: center">
+             <div>
+                    <input style="width: 50%;margin-left: 24%;" id="brand_name" name="brand_name" placeholder="Brand Name" type="text" class="form-control"  value="<?php echo set_value('employeeno'); ?>" />
+             <br/>   <span class="text-danger"><?php echo form_error('category_name'); ?></span>
             </div>
                    <?php if(isset($berror)){?>
-                <div class="alert alert-danger" role="alert" style="margin-left: 32%;; margin-top: 6%;background-color: #fff; border-color: #fff;color: #a94442;">
-              <strong>Oh snap!</strong> Brand Already Exists..!!
-			   </div>
+                <div style=" margin-left: 24%; width: 50%;align: center;">
+                <font size="3" color="red">  <p><strong>Oops!!</strong> Something Went wrong!!</p></font> 
+                </div>
+                    
                <?php }?>
                 <?php if(isset($bsucess)){?>
-                <div class="alert alert-danger" role="alert" style="margin-left: 18%;; margin-top: 6%;background-color: #fff; border-color: #fff;color: #5FA942;">
-              <strong>Oh Good!</strong> Brand added sucessfully!!
-			   </div>
+                <div style=" margin-left: 21%; width: 56%;align: center;" >
+                 <font size="3" color="green"><p><strong>Oh Good!</strong>Brand added sucessfully!!</p></font> 
+                </div>
                <?php }?>
                 <?php if(isset($bempty)){?>
-                <div class="alert alert-danger" role="alert" style="margin-left: 18%;; margin-top: 6%;background-color: #fff; border-color: #fff;color: #a94442;">
-              <strong>Oops!!</strong> Brand Name is Empty!!
-			   </div>
+                <div style=" margin-left: 24%; width: 50%;align: center;" >
+                 <font size="3" color="red"><p><strong>Oops!!</strong> Brand Name is Empty!!</p></font> 
+                </div>
                <?php }?>
             </div>
             </div>
-            
-            </div>
-        </div>
-            
-            
-            <div class="form-group">
+        <div class="form-group">
                 <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left" >
-                    <input style="margin-top: -47%;
-                           color: #fff;
-                           background-color: #0275d8;
-                           border-color: #0275d8;
-                            margin-left: -3%;"
-                      id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Insert" />
+           <input  id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Insert" />
             </div>
             </div>
         </fieldset>
         <?php echo form_close(); ?>
         <?php echo $this->session->flashdata('msg'); ?>
-        </div>
-          <div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="width: 34%; margin-left: 62%;margin-top: -28%;">
-        <legend>Delete Brand</legend>
-      <?php 
+        
+   </th>
+    <th class="tg-baqh">    <div class="row">
+            <div style="width: 55%;background: #9999ff;margin-left: 24%;">
+                <legend><font size="5" color="white">Delete Brand</font></legend>
+            </div> 
+        <?php 
         $attributes = array("class" => "form-horizontal", "id" => "employeeform", "name" => "employeeform");
         echo form_open("admin/DeleteBrand", $attributes);?>
         <fieldset>
             
-            
-            
-            <div class="col-lg-4 col-sm-4">
-                <label for="Brand Name" class="control-label">Brand Name</label>
-            </div>
-           <div class="col-lg-8 col-sm-8"><?php
-                $attributes = 'class = "form-control" id = "brand"';
+            <div style="float: center">
+                <div>
+                 <?php $attributes = 'class = "form-control1" id = "brand"';
                 echo form_dropdown('brand',$brand,set_value('brand'),$attributes);?>
                 <span class="text-danger"><?php echo form_error('brand'); ?></span>
                 
             </div>
-                 <?php if(isset($bderror)){?>
-                <div class="alert alert-danger" role="alert" style="margin-left: 32%;; margin-top: 6%;background-color: #fff; border-color: #fff;color: #a94442;">
-              <strong>Oh snap!</strong> An Error Occurred ..!!
-			   </div>
-               <?php }?>
-                <?php if(isset($bdsucess)){?>
-                <div class="alert alert-danger" role="alert" style="margin-left: 18%;; margin-top: 6%;background-color: #fff; border-color: #fff;color: #5FA942;">
-              <strong>Oh Good!</strong> Brand Deleted sucessfully!!
-			   </div>
-               <?php }?>
-                <?php if(isset($bdempty)){?>
-                <div class="alert alert-danger" role="alert" style="margin-left: 18%;; margin-top: 6%;background-color: #fff; border-color: #fff;color: #a94442;">
-              <strong>Oops!!</strong> Select Brand to Delete!!
-			   </div>
-               <?php }?>
-            </div>
-            </div>
-            </div>
-            </div>
-            
-            <div class="form-group">
-                <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left" style="margin-top: -17%;
-    margin-left: 75%;">
-                <input id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Delete" />
-            </div>
-            </div>
-        </fieldset>
-        <?php echo form_close(); ?>
-        <?php echo $this->session->flashdata('msg'); ?>
-        </div>
-<div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="    float: right;
-    margin-top: -12%;
-    width: 37%;">
-        <legend>Delete Category</legend>
-       <?php 
-        $attributes = array("class" => "form-horizontal", "id" => "employeeform", "name" => "employeeform");
-        echo form_open("admin/DeleteCategory", $attributes);?>
-        <fieldset>
-            
-            <div class="col-lg-4 col-sm-4">
-                <label for="Category Name" class="control-label">Category Name</label>
-            </div>
-                <div class="col-lg-8 col-sm-8" style="width:55.666667%"><?php
-                $attributes = 'class = "form-control" id = "category"';
-                echo form_dropdown('category',$category,set_value('category'),$attributes);?>
-                <span class="text-danger"><?php echo form_error('category'); ?></span>
-            </div>
                   <?php if(isset($bderror)){?>
-                <div class="alert alert-danger" role="alert" style="margin-left: 32%;; margin-top: 6%;background-color: #fff; border-color: #fff;color: #a94442;">
-              <strong>Oh snap!</strong> An Error Occurred ..!!
-			   </div>
+                <div style=" margin-left: 24%; width: 55%;align: center;">
+                <font size="3" color="red">  <p><strong>Oops!!</strong> Something Went wrong!!</p></font> 
+                </div>
+                    
                <?php }?>
                 <?php if(isset($bdsucess)){?>
-                <div class="alert alert-danger" role="alert" style="margin-left: 18%; margin-top: 6%;background-color: #fff; border-color: #fff;color: #5FA942;">
-              <strong>Oh Good!</strong> Brand Deleted sucessfully!!
-			   </div>
+                <div style=" margin-left: 21%; width: 58%;align: center;" >
+                 <font size="3" color="green"><p><strong>Oh Good!</strong>Brand Deleted Sucessfully!!</p></font> 
+                </div>
                <?php }?>
-                <?php if(isset($bdempty)){?>
-                <div class="alert alert-danger" role="alert" style="margin-left: 18%; margin-top: 6%;background-color: #fff; border-color: #fff;color: #a94442;">
-              <strong>Oops!!</strong> Select Brand to Delete!!
-			   </div>
+                 <?php if(isset($bdempty)){?>
+                <div style=" margin-left: 24%; width: 55%;align: center;" >
+                 <font size="3" color="red"><p><strong>Oops!!</strong> Brand Name is Empty!!</p></font> 
+                </div>
                <?php }?>
             </div>
-        <input style="float: right;    margin-top: -1%;
-   margin-right: 17%;" id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Delete" />
-           
+            </div>
+        <div class="form-group">
+                <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left" >
+           <input  id="btn_add" name="btn_delete" type="submit" class="btn btn-primary" value="Delete" />
+            </div>
+            </div>
         </fieldset>
         <?php echo form_close(); ?>
         <?php echo $this->session->flashdata('msg'); ?>
-        </div>
-          <div class="col-sm-offset-3 col-lg-6 col-sm-6 well" style="
-    width: 37%;
-    margin-left: 18%;
-    margin-top: -13%;
-    float: left;;">
-        <legend>Add Category</legend>
-      <?php 
+        </th>
+  </tr>
+  <tr>
+    <td class="tg-baqh">   <div class="row">
+            <div style="width: 50%;background: #9999ff;margin-left: 24%;">
+                <legend><font size="5" color="white">Add Category</font></legend>
+            </div> 
+        <?php 
         $attributes = array("class" => "form-horizontal", "id" => "employeeform", "name" => "employeeform");
         echo form_open("admin/AddCategory", $attributes);?>
         <fieldset>
             
-            <div class="col-lg-4 col-sm-4">
-                <label for="Category Name" class="control-label">Category Name</label>
+            <div style="float: center">
+             <div>
+                 <input style="width: 50%;margin-left: 25%;" id="brand_name" name="category_name" placeholder="Category Name" type="text" class="form-control"  value="<?php echo set_value('employeeno'); ?>" 
+             <br/>   <span class="text-danger"><?php echo form_error('category_name'); ?></span>
             </div>
-                  <div class="col-lg-8 col-sm-8">
-                <input id="brand_name" name="category_name" placeholder="Category Name" type="text" class="form-control"  value="<?php echo set_value('employeeno'); ?>" />
-                <span class="text-danger"><?php echo form_error('category_name'); ?></span>
-            </div>
-                <?php if(isset($error)){?>
-                <div class="alert alert-danger" role="alert" style="margin-left: 84px; margin-top: 43px;background-color: #fff; border-color: #fff;color: #a94442;">
-              <strong>Oh snap!</strong> Category Already Exists..!!
-			   </div>
+                   <?php if(isset($error)){?>
+                <div style=" margin-left: 24%; width: 55%;align: center;">
+                <font size="3" color="red">  <p><strong>Oops!!</strong> Something Went wrong!!</p></font> 
+                </div>
+                    
                <?php }?>
                 <?php if(isset($sucess)){?>
-                <div class="alert alert-danger" role="alert" style="margin-left: 61px;; margin-top: 43px; background-color: #fff; border-color: #fff;color: #5FA942;">
-              <strong>Oh Good!</strong> Category added sucessfully!!
-			   </div>
+                <div style=" margin-left: 21%; width: 56%;align: center;" >
+                 <font size="3" color="green"><p><strong>Oh Good!</strong>Category added sucessfully!!</p></font> 
+                </div>
                <?php }?>
-                 <?php if(isset($cempty)){?>
-                <div class="alert alert-danger" role="alert" style="margin-left: 18%;; margin-top: 6%;background-color: #fff; border-color: #fff;color: #a94442;">
-              <strong>Oops!!</strong> Category Name is Empty!!
-			   </div>
+                <?php if(isset($cempty)){?>
+                <div style=" margin-left: 24%; width: 55%;align: center;" >
+                 <font size="3" color="red"><p><strong>Oops!!</strong> Category Name is Empty!!</p></font> 
+                </div>
                <?php }?>
             </div>
-        <input style="margin-left: 33%;margin-top: -2%;
-    color: #fff;
-    float: left;
-    background-color: #0275d8;
-    border-color: #0275d8;" id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Insert" />
-            
-      
+            </div>
+        <div class="form-group">
+                <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left" >
+                    <input  style="margin-top: 0%;"id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Insert" />
+            </div>
+            </div>
         </fieldset>
         <?php echo form_close(); ?>
         <?php echo $this->session->flashdata('msg'); ?>
-        </div>
-    </div>
+        </td>
+    <td class="tg-baqh">   <div class="row">
+            <div style="width: 50%;background: #9999ff;margin-left: 24%;">
+                <legend><font size="5" color="white">Delete Category</font></legend>
+            </div> 
+        <?php 
+        $attributes = array("class" => "form-horizontal", "id" => "employeeform", "name" => "employeeform");
+        echo form_open("admin/DeleteCategory", $attributes);?>
+        <fieldset>
             
-</div>
-
-
-<!--        <div class="col-md-9 col-lg-10 main" style="margin-top: 50px;">
-
-            toggle sidebar button
-            <p class="hidden-md-up">
-                <button type="button" class="btn btn-primary-outline btn-sm" data-toggle="offcanvas"><i class="fa fa-chevron-left"></i> Menu</button>
-            </p>
-
-            <h1 class="display-1 hidden-xs-down">
-           
-            </h1>
-            <p class="lead"> <?php echo "Welcome ".$this->session->userdata('username');?></p>
-
-    
-</div>-->
-        </div>
-        <!--/main col-->
-    </div>
-
+            <div style="float: center">
+              <div style="float: center">
+                <div>
+                 <?php $attributes = 'class = "form-control2" id = "category"';
+              echo form_dropdown('category',$category,set_value('category'),$attributes);?>
+                <span class="text-danger"><?php echo form_error('brand'); ?></span>
+               </div>
+                   <?php if(isset($caerror)){?>
+                <div style=" margin-left: 24%; width: 50%;align: center;">
+                <font size="3" color="red">  <p><strong>Oops!!</strong> Something Went wrong!!</p></font> 
+                </div>
+                    
+               <?php }?>
+                <?php if(isset($casucess)){?>
+                <div style=" margin-left: 21%; width: 56%;align: center;" >
+                 <font size="3" color="green"><p><strong>Oh Good!</strong>Category Deleted sucessfully!!</p></font> 
+                </div>
+               <?php }?>
+                <?php if(isset($caempty)){?>
+                <div style=" margin-left: 24%; width: 52%;align: center;" >
+                 <font size="3" color="red"><p><strong>Oops!!</strong> Category Name is Empty!!</p></font> 
+                </div>
+               <?php }?>
+            </div>
+            </div>
+        <div class="form-group">
+                <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left" >
+           <input  id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Delete" />
+            </div>
+            </div>
+        </fieldset>
+        <?php echo form_close(); ?>
+        <?php echo $this->session->flashdata('msg'); ?>
+        </td>
+  </tr>
+</table>  
+                   
 </div>
 
 
