@@ -52,8 +52,8 @@ $this->load->view('admin/addadmin');
 public function do_register(){
   //set validation rules
    $this->form_validation->set_rules('uname','User Name','trim|required|min_length[3]|max_length[30]|xss_clean');
-   $this->form_validation->set_rules('email','Email ID','trim|required|valid_email');
-   $this->form_validation->set_rules('gender','Gender','trim|required');   
+   $this->form_validation->set_rules('email','Email ID','trim|required|valid_email|callback_UniqueEmail');
+   $this->form_validation->set_rules('gender','Gender','trim|required|callback_combo_check');   
    $this->form_validation->set_rules('password','Password','trim|required|min_length[5]|matches[cpassword]|md5');
    $this->form_validation->set_rules('cpassword','Confirm Password', 'trim|required|min_length[5]');   
    if ($this->form_validation->run() == FALSE){
@@ -72,7 +72,9 @@ public function do_register(){
             if ($this->user_model->register_user($data))
             {
                 $this->data['sucess']="Admin added sucessfully";
-                $this->session->set_flashdata('verify_msg','<div class="alert alert-success text-center">Your Email Address is successfully verified! Please login to access your account!</div>');
+                $this->session->set_flashdata('verify_msg',
+                        '<div class="alert alert-success text-center">Your Email Address is successfully verified! '
+                        . 'Please login to access your account!</div>');
                 $this->load->view('admin/addadmin', $this->data);
               }
         }
@@ -203,5 +205,21 @@ function alpha_only_space($str)
     {
         return TRUE;
     }
+}
+
+
+
+
+function UniqueEmail($email)
+{
+     $boolean = $this->user_model->isEmailExist($email);
+      if($boolean)
+      {
+        $this->form_validation->set_message('UniqueEmail', 'This %s email already exist.');
+        return FALSE;   
+      }
+      else{
+          return TRUE;
+      }
 }
 }

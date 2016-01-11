@@ -121,6 +121,18 @@ public function register_user($data){
             return false;
         } 
     }
+      function isEmailExist($Id){ 
+        $this->db->select('email');
+        $this->db->from('users');
+        $query = $this->db->get();
+        $result = $query->result();
+        if($this->db->affected_rows()>0){
+            return true;
+        }
+        else{
+            return false;
+        } 
+    }
     
 }
     
