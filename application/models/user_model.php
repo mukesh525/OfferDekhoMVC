@@ -121,12 +121,11 @@ public function register_user($data){
             return false;
         } 
     }
-      function isEmailExist($Id){ 
-        $this->db->select('email');
-        $this->db->from('users');
-        $query = $this->db->get();
-        $result = $query->result();
-        if($this->db->affected_rows()>0){
+      function isEmailExist($email){ 
+        $this->db->where('email',$email);
+        $q = $this->db->get('users');
+        $data = $q->result_array();
+        if(isset($data[0]['email'])){
             return true;
         }
         else{

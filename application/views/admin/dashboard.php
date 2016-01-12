@@ -56,7 +56,7 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
             <ul class="nav nav-pills nav-stacked" >
                 <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/login');?>">Brand/Category</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/register');?>">Add Admin</a></li>
-                <li class="nav-item"><a class="nav-link" href="">Delete Product</a></li>
+              <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/addProduct');?>">Add Product</a></li>
                 <li class="nav-item"><a class="nav-link" href="">Delete Admin</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/logout');?>">Logout</a></li>
                
@@ -76,8 +76,8 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
             
             <div style="float: center">
              <div>
-                    <input style="width: 50%;margin-left: 24%;" id="brand_name" name="brand_name" placeholder="Brand Name" type="text" class="form-control"  value="<?php echo set_value('employeeno'); ?>" />
-             <br/>   <span class="text-danger"><?php echo form_error('category_name'); ?></span>
+                    <input style="width: 50%;margin-left: 24%;" id="brand_name" name="brand_name" placeholder="Brand Name" type="text" class="form-control"  value="<?php echo set_value('brand_name'); ?>" />
+             <br/>   <span class="text-danger"><?php echo form_error('brand_name'); ?></span>
             </div>
                    <?php if(isset($berror)){?>
                 <div style=" margin-left: 24%; width: 50%;align: center;">

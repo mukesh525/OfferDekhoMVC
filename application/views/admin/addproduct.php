@@ -51,7 +51,7 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
             <ul class="nav nav-pills nav-stacked" >
                 <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/login');?>">Brand/Category</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/register');?>">Add Admin</a></li>
-                <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/addProduct');?>">Add Product</a></li>
+                <li class="nav-item"><a class="nav-link" href="">Delete Product</a></li>
                 <li class="nav-item"><a class="nav-link" href="">Delete Admin</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/logout');?>">Logout</a></li>
                
@@ -59,49 +59,57 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
            </div>
             
            <div class="row">
-               <div class="col-md-6 col-md-offset-3" style="margin-top: -19%;
+               <div class="col-md-6 col-md-offset-3" style="margin-top: -26%;;
     margin-left: 25%">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4>Add Admin</h4>
+                <h4>Add Product</h4>
             </div>
             <div class="panel-body">
-                <?php $attributes = array("name" => "addadminform");
-                echo form_open("admin/do_register", $attributes);?>
+                <?php $attributes = array("name" => "productform");
+               echo form_open_multipart('admin/add_product');?>
                 <div class="form-group">
-                    <label for="uname">Name</label>
-                    <input class="form-control" name="uname" placeholder="User Name" type="text" value="<?php echo set_value('uname'); ?>" />
-                    <span class="text-danger"><?php echo form_error('uname'); ?></span>
+                    <label for="name">Product Name</label>
+                    <input class="form-control" name="name" placeholder="Product Name" type="text" value="<?php echo set_value('name'); ?>" />
+                    <span class="text-danger"><?php echo form_error('name'); ?></span>
                 </div>
                <div class="form-group">
-                    <label for="email">Email ID</label>
-                    <input class="form-control" name="email" placeholder="Email-ID" type="text" value="<?php echo set_value('email'); ?>" />
-                    <span class="text-danger"><?php echo form_error('email'); ?></span>
+                    <label for="discount">Discount</label>
+                    <input class="form-control" name="discount" placeholder="Discount" type="text" value="<?php echo set_value('discount'); ?>" />
+                    <span class="text-danger"><?php echo form_error('discount'); ?></span>
                 </div>
                 
                
             </div>
             <div class="form-group">
-                 <label for="gender">Gender  </label>
-                <input type="radio" name="gender" value="male" <?php echo set_radio('gender', 'male'); ?>/>Male
-                <input type="radio" name="gender" value="female" <?php echo set_radio('gender', 'female'); ?>/>Female
-                <span class="text-danger"><?php echo form_error('gender'); ?></span>
+                 <label for="image">Product Image </label>
+                <input class="form-control" id="image" type="file" name="image" value="image" <?php echo set_value('image');?>/>
+               <span class="text-danger"><?php echo form_error('image'); ?></span>
             </div>
 
                 <div class="form-group">
-                    <label for="subject">Password</label>
-                    <input class="form-control" name="password" placeholder="Password" type="password" />
-                    <span class="text-danger"><?php echo form_error('password'); ?></span>
+                    <label for="location">Location</label>
+                    <input class="form-control" name="location" placeholder="Location" type="text" />
+                    <span class="text-danger"><?php echo form_error('location'); ?></span>
                 </div>
 
                 <div class="form-group">
-                    <label for="subject">Confirm Password</label>
-                    <input class="form-control" name="cpassword" placeholder="Confirm Password" type="password" />
-                    <span class="text-danger"><?php echo form_error('cpassword'); ?></span>
+                   <label for="brand">Brand</label>
+                     <?php $attributes = 'class = "form-control1" style="margin-left: 7%" id = "brand"';
+                      echo form_dropdown('brand',$brand,set_value('brand'),$attributes);?>
+                      <span class="text-danger"><?php echo form_error('brand'); ?></span>
+            
+                </div>
+                <div class="form-group">
+                   <label for="category">Category</label>
+                     <?php $attributes = 'class = "form-control1" id = "category"';
+                      echo form_dropdown('category',$category,set_value('category'),$attributes);?>
+                      <span class="text-danger"><?php echo form_error('category'); ?></span>
+            
                 </div>
 
                 <div class="form-group">
-                    <button name="submit" type="submit" class="btn btn-default">Add Admin</button>
+                    <button name="submit" type="submit" class="btn btn-default">Add Product</button>
                     <button name="cancel" type="reset" class="btn btn-default">Cancel</button>
                 </div>
                 <?php echo form_close(); ?>
