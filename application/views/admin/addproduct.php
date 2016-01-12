@@ -114,9 +114,14 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
                 </div>
                 <?php echo form_close(); ?>
                 <?php echo $this->session->flashdata('verify_msg'); ?>
-                <?php if(isset($sucess)){?>
+                <?php if(isset($psucess)){?>
                 <div style=" margin-left: 21%; width: 58%;align: center;" >
-                 <font size="3" color="green"><p><strong>Good!</strong>Admin Added Sucessfully!!</p></font> 
+                 <font size="3" color="green"><p><strong>Good!</strong>Product Added Sucessfully!!</p></font> 
+                </div>
+               <?php }?>
+              <?php if(isset($perror)){?>
+                <div style=" margin-left: 21%; width: 58%;align: center;" >
+                 <font size="3" color="green"><p><strong>Good!</strong>Product Added Sucessfully!!</p></font> 
                 </div>
                <?php }?>
             </div>
