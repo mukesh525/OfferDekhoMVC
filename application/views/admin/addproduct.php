@@ -51,7 +51,7 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
             <ul class="nav nav-pills nav-stacked" >
                 <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/login');?>">Brand/Category</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/register');?>">Add Admin</a></li>
-                <li class="nav-item"><a class="nav-link" href="">Delete Product</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/addProduct');?>">Add Product</a></li>
                 <li class="nav-item"><a class="nav-link" href="">Delete Admin</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/logout');?>">Logout</a></li>
                
@@ -121,7 +121,7 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
                <?php }?>
               <?php if(isset($perror)){?>
                 <div style=" margin-left: 21%; width: 58%;align: center;" >
-                 <font size="3" color="green"><p><strong>Good!</strong>Product Added Sucessfully!!</p></font> 
+                 <font size="3" color="green"><p><strong>Good!</strong>Some error Occured try again!!</p></font> 
                 </div>
                <?php }?>
             </div>
