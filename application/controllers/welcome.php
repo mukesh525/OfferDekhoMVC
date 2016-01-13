@@ -10,9 +10,13 @@ class Welcome extends CI_Controller {
         
          }
          public function index(){ 
-               
-                $this->load->view('templates/imageslider');
-                $this->load->view('templates/containers');
+                $result=$this->products->get_ImageSLiderData();
+                $result2=$this->products->get_random_product();
+                $result['result1']=$result;
+                $result2['result3']=$result2;
+                
+                $this->load->view('templates/imageslider',$result);
+                $this->load->view('templates/containers',$result2);
                 $this->load->view('templates/offers');
                 $this->load->view('templates/footer');
         }

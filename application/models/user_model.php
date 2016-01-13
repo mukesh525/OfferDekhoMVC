@@ -74,6 +74,28 @@ public function register_user($data){
     
     
     
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
      function add_category($category){ 
        //ALTER TABLE  `YOUR-TABLE` ORDER BY  `index`
          $this->Name = $category;

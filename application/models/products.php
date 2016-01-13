@@ -38,6 +38,25 @@ Class Products extends CI_Model {
         }
         
     }
+      function get_ImageSLiderData(){ 
+        $this->db->select('id');
+        $this->db->select('name');
+        $this->db->select('image');
+        $this->db->select('description');
+        $this->db->from('imageslider');
+        $query = $this->db->get();
+        //$result = $query->result();
+
+        return  $query->result_array();;
+    }
+    
+    function get_random_product(){
+    $this->db->order_by('Id', 'RANDOM');
+    $this->db->limit(8);
+    $query = $this->db->get('products');
+    return $query->result_array();
+
+}
     
 }
 ?>
