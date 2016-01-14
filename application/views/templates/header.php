@@ -19,6 +19,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="<?=base_url()?>css/memenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="<?=base_url()?>js/memenu.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>	
+<link rel="shortcut icon" href="<?=base_url()?>images/logo1.png">
 <!-- /start menu -->
 </head>
 <script src="<?=base_url()?>js/responsiveslides.min.js"></script>
@@ -34,11 +35,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     });
   </script>
  
-<div class="header-top">
+  <div class="header-top" style="margin-bottom: -3px;">
 	 <div class="header-bottom">			
-				<div class="logo">
-					<h1><a href="<?=base_url()?>">Offer Dekho</a></h1>					
+			    	
+             <div class="logo" style="height: 1px;margin-left: -4%" >
+                 <h1 ><a href="<?=base_url()?>">Offers Dekho</a></h1>	
+                              </div>
+             <div class="logo" >
+                                    <div style="width:80px;height:100px ;margin-left: -77%;">
+                                   <img src="<?=base_url()?>images/logo1.png" class="img-responsive" alt="">
+                                    </div>
+                           
+                                    
 				</div>
+             
 			 <!---->		 
 			 <div class="top-nav">
 				<ul class="memenu skyblue"><li class="showhide" style="overflow: hidden; display: none;">
