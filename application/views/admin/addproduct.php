@@ -8,6 +8,7 @@
     <meta name="generator" content="Codeply">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css" />
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="<?=base_url()?>images/logo1.png">
  <style type="text/css">
 .tg  {margin-top: 2%;width: 100%;margin-left: -4%;border-collapse:collapse;border: 1px solid black;;border-spacing: 0;}
 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-width:1px;border: 1px solid black;overflow:hidden;word-break:normal;}
@@ -52,6 +53,7 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
                 <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/login');?>">Brand/Category</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/register');?>">Add Admin</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/addProduct');?>">Add Product</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/addImageSlider');?>">Add ImageSlider</a></li>
                 <li class="nav-item"><a class="nav-link" href="">Delete Admin</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/logout');?>">Logout</a></li>
                

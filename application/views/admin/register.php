@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <title>Welcome</title>
+<link rel="shortcut icon" href="<?=base_url()?>images/logo1.png">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style>
 html, body {height: 100%;}

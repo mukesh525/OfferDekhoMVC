@@ -20,6 +20,7 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
 background-color: #fff;background-image: none;border: .0625rem solid #ccc;border-radius: .25rem;}
 </style>
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="shortcut icon" href="<?=base_url()?>images/logo1.png">
   </head>
   <body >
     <nav class="navbar navbar-fixed-top navbar-dark bg-primary">
@@ -52,6 +53,7 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
                 <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/login');?>">Brand/Category</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/register');?>">Add Admin</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/addProduct');?>">Add Product</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/addImageSlider');?>">Add ImageSlider</a></li>
                 <li class="nav-item"><a class="nav-link" href="">Delete Admin</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?php echo site_url('admin/logout');?>">Logout</a></li>
                

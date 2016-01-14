@@ -2,6 +2,7 @@
 <head>
 <meta charset="utf-8">
 <title>OfferDekho Admin Login</title>
+<link rel="shortcut icon" href="<?=base_url()?>images/logo1.png">
 <style type="text/css">
 body {
 background-color: #f4f4f4;
