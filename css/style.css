@@ -190,22 +190,16 @@ width: 500px;
 text-align: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*----*/
+
+
+/*.logo{
+      //background:url(../images/logo.png) no-repeat 0px 0px;
+      width:100%;
+}*/
 .logo img{
-	width:100%;
+      //background:url(../images/logo.png) no-repeat 0px 0px;
+      width:100%;
 }
 .login a{
 	font-size:13px;
