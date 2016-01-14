@@ -152,6 +152,10 @@ class Admin extends CI_Controller
     {
         $this->load->view('admin/addproduct', $this->data);
     }
+     public function  addImageSlider()
+    {
+        $this->load->view('admin/addImageSlider');
+    }
     
     public function add_product()
     {
@@ -186,7 +190,35 @@ class Admin extends CI_Controller
              }
         }
     }
-    
+     public function add_ImageSlider()
+    {
+        $this->form_validation->set_rules('name', 'Name', 'trim|required');
+        $this->form_validation->set_rules('image', 'Image', 'callback_image_upload1');
+        $this->form_validation->set_rules('description', 'Description', 'trim|required');
+      
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('admin/addImageSlider', $this->data);
+        } else {
+            $this->upload->do_upload('image');
+            $upload_data = $this->upload->data();
+            $file_name   = $upload_data['file_name'];
+            
+            $data = array(
+                'name' => $this->input->post('name'),
+                'description' => $this->input->post('description'),
+                'image' => $file_name,
+                );
+             $boolean = $this->products->addImageSLiderData($data);
+             if($boolean){
+               $this->data['pisucess'] = 'sucess';  
+               $this->load->view('admin/addImageSlider', $this->data);
+             }else{
+               $this->data['pierror'] = 'error';  
+               $this->load->view('admin/addImageSlider', $this->data);
+             }
+        }
+    }
+   
     public function image_upload()
     {
         
@@ -248,7 +280,67 @@ class Admin extends CI_Controller
             return false;
         }
     }
-    
+     public function image_upload1()
+    {
+        
+        if ($_FILES['image']['size'] != 0) {
+            $upload_dir = './images/';
+            if (!is_dir($upload_dir)) {
+                mkdir($upload_dir);
+            }
+            
+            $config['upload_path']   = $upload_dir;
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['file_name']     = 'slider_' . substr(md5(rand()), 0, 7);
+            $config['overwrite']     = false;
+            $config['max_size']      = '20000000';
+            $config['max_width']     = 1200;
+            $config['max_height']     = 450;
+            
+        
+            $this->load->library('upload', $config);
+            //echo 'config';
+           // print_r($_FILES['image']);exit;
+            if (!in_array($_FILES['image']['type'], array(
+                'image/gif',
+                'image/jpg',
+                'image/png',
+                'image/jpeg'
+            ))) {
+                $this->form_validation->set_message('image_upload1', "This file type is not allowed");
+                return FALSE;
+                
+            } else {
+                    $imageSize = $_FILES["image"]['tmp_name'];
+                    $imgSize1 = @getImageSize($imageSize);  
+                    $imageWidth = $imgSize1[0];
+                    $imageHeigth = $imgSize1[1];
+//                    print_r($imageHeigth);
+//                    print_r($imageWidth); exit();
+             
+                
+                if ($_FILES['image']['size'] > 20000000) {
+                    $this->form_validation->set_message('image_upload1', "This file exeeds the size limit");
+                    return FALSE;
+                }
+                 elseif ( $imageWidth!=1200 || $imageHeigth!=450) {
+                   $this->form_validation->set_message('image_upload1', "Image Resoltion must be in 1200*450 width and height repectively");
+                    return FALSE; 
+                
+                 }
+                
+                else {
+                    return TRUE;
+                }
+                
+            }
+            
+            
+        } else {
+            $this->form_validation->set_message('image_upload1', "No file selected");
+            return false;
+        }
+    }
     public function AddCategory(){
         if ($_POST['category_name'] != "") {
             $boolean = $this->user_model->add_category($_POST['category_name']);
