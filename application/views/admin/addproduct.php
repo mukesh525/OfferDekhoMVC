@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+   <script type="text/javascript">
+     var BASE_URL = "<?php echo base_url();?>";</script>
+  <script src=<?php echo site_url("js/scripts.js")?>></script>
     <meta charset="utf-8">
     <title>OfferDekho Admin</title>
     <meta name="description" content="A admin dashboard theme that will get you started with Bootstrap 4." />
@@ -155,21 +158,13 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
                 <?php $attributes = array("name" => "productform");
                echo form_open_multipart('admin/delete_product');?>
                 <div class="form-group">
-                   <label for="products">Brand</label>
-                     <?php $attributes = 'class = "form-control1" style="margin-left: 7%" id = "brand"';
-                     $js ='onChange="message()"';
-               echo "<script type=\"text/javascript\" > function message(){ 
-                     alert('hello')};
-                     </script>";
-                      echo form_dropdown('products',$products,$js),set_value('products'),$attributes;?>
+                   <label for="products">Product</label>
+                    <?php $attributes = 'class = "form-control2" id = "products" style="margin-left: 2%;"';
+                 echo form_dropdown('products',$products,set_value('products'),$attributes);?>
                       <span class="text-danger"><?php echo form_error('products'); ?></span>
-            
                 </div>
-                 <div for='newEmp' class="subdepartment"></div>
-                
-
+                <div id="image1" style="margin-left: 18%;"></div>
                 <div class="form-group">
-                    <button name="submit" type="submit" class="btn btn-default">GetImage</button>
                     <button name="submit" type="submit" class="btn btn-default">Delete Product</button>
                     <button name="cancel" type="reset" class="btn btn-default">Cancel</button>
                 </div>
@@ -177,7 +172,7 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
                 <?php echo $this->session->flashdata('verify_msg'); ?>
                 <?php if(isset($dpsucess)){?>
                 <div style=" margin-left: 21%; width: 58%;align: center;" >
-                 <font size="3" color="green"><p><strong>Good!</strong>Product Added Sucessfully!!</p></font> 
+                 <font size="3" color="green"><p><strong>Good!</strong>Product Deleted Sucessfully!!</p></font> 
                 </div>
                <?php }?>
               <?php if(isset($dperror)){?>
@@ -198,7 +193,6 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
-    
-    <script src="js/scripts.js"></script>
+    <script src=<?php echo site_url("js/scripts.js")?>></script>
   </body>
 </html>

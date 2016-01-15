@@ -16,6 +16,8 @@ class Admin extends CI_Controller
         $this->load->database();
         $this->data['category'] = $this->user_model->get_category();
         $this->data['brand']    = $this->user_model->get_brandname();
+        $this->data['products']  = $this->products->getProductName();
+        
     }
     
     public function index()
@@ -57,10 +59,30 @@ class Admin extends CI_Controller
         }
     }
     
-    public function register()
-    {
+    public function register(){
         $this->load->view('admin/addadmin');
     }
+     public function getProductImage($id){
+      $image = $this->products-> getProductImage($id);
+      echo $image;
+    }
+     public function delete_product(){
+       if ($_POST['products'] != '-SELECT-') {
+        $boolean = $this->products->delete_product($_POST['products']);
+       if($boolean){
+         $this->data['dpsucess'] = 'sucess';
+         $this->data['products']  = $this->products->getProductName();
+         $this->load->view('admin/addproduct', $this->data);
+        } 
+        else {
+             $this->data['dperror'] = 'error';
+            $this->load->view('admin/addproduct', $this->data);
+            }
+     }else{
+         echo $this->db->_error_message();
+     }
+     
+     }
     
     public function do_register()
     {
@@ -132,6 +154,7 @@ class Admin extends CI_Controller
     
     public function DeleteCategory()
     {
+       
         if ($_POST['category'] != '-SELECT-') {
             print_r($_POST);
             $boolean = $this->user_model->delete_category($_POST['category']);
@@ -150,6 +173,7 @@ class Admin extends CI_Controller
     
     public function addProduct()
     {
+       
         $this->load->view('admin/addproduct', $this->data);
     }
      public function  addImageSlider()
@@ -164,6 +188,7 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('image', 'Profile Image', 'callback_image_upload');
         $this->form_validation->set_rules('location', 'Location', 'trim|required');
         $this->form_validation->set_rules('brand', 'brand', 'trim|required|callback_combo_check');
+         $this->form_validation->set_rules('products', 'products', 'trim|required|callback_combo_check');
         $this->form_validation->set_rules('category', 'category', 'trim|required|callback_combo_check');
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('admin/addproduct', $this->data);

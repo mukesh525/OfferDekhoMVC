@@ -208,8 +208,8 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
               <div style="float: center">
                 <div>
                  <?php $attributes = 'class = "form-control2" id = "category"';
-              echo form_dropdown('category',$category,set_value('category'),$attributes);?>
-                <span class="text-danger"><?php echo form_error('brand'); ?></span>
+               echo form_dropdown('category',$category,set_value('category'),$attributes);?>
+                <span class="text-danger"><?php echo form_error('category'); ?></span>
                </div>
                    <?php if(isset($caerror)){?>
                 <div style=" margin-left: 24%; width: 50%;align: center;">
