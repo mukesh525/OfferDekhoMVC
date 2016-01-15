@@ -81,7 +81,7 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
             
            <div class="row">
                <div class="col-md-6 col-md-offset-3" style="margin-top: -26%;
-    margin-left: 18%;width: 46%;">
+    margin-left: 18%;width: 32%;">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4>Add Product</h4>
@@ -149,7 +149,7 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
             </div>
         </div>
                   <div class="col-md-6 col-md-offset-3" style="margin-top: -46%;;
-    margin-left: 68%">
+    margin-left: 60%">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4>Delete Product</h4>

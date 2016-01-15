@@ -16,7 +16,8 @@ class Admin extends CI_Controller
         $this->load->database();
         $this->data['category'] = $this->user_model->get_category();
         $this->data['brand']    = $this->user_model->get_brandname();
-        $this->data['products']  = $this->products->getProductName();
+        $this->data['products'] = $this->products->getProductName();
+        $this->data['imageslider'] = $this->products->getImageSlidertName();
         
     }
     
@@ -66,6 +67,13 @@ class Admin extends CI_Controller
       $image = $this->products-> getProductImage($id);
       echo $image;
     }
+    
+    
+     public function getSliderImage($id){
+       $image = $this->products->getSliderImage($id);
+       echo $image;
+      
+    }
      public function delete_product(){
        if ($_POST['products'] != '-SELECT-') {
         $boolean = $this->products->delete_product($_POST['products']);
@@ -77,6 +85,23 @@ class Admin extends CI_Controller
         else {
              $this->data['dperror'] = 'error';
             $this->load->view('admin/addproduct', $this->data);
+            }
+     }else{
+         echo $this->db->_error_message();
+     }
+     
+     }
+        public function delete_SliderImage(){
+       if ($_POST['imageslider'] != '-SELECT-') {
+       $boolean = $this->products->delete_imageslider($_POST['imageslider']);
+       if($boolean){
+         $this->data['dipsucess'] = 'sucess';
+         $this->data['products']  = $this->products-> getImageSlidertName();
+         $this->load->view('admin/addImageSlider', $this->data);
+        } 
+        else {
+             $this->data['diperror'] = 'error';
+            $this->load->view('admin/addImageSlider', $this->data);
             }
      }else{
          echo $this->db->_error_message();
@@ -178,7 +203,7 @@ class Admin extends CI_Controller
     }
      public function  addImageSlider()
     {
-        $this->load->view('admin/addImageSlider');
+        $this->load->view('admin/addImageSlider',$this->data);
     }
     
     public function add_product()

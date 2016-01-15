@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+       <script type="text/javascript">
+     var BASE_URL = "<?php echo base_url();?>";</script>
+
     <meta charset="utf-8">
     <title>OfferDekho Admin</title>
     <meta name="description" content="A admin dashboard theme that will get you started with Bootstrap 4." />
@@ -61,7 +64,7 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
            </div>
             
            <div class="row">
-               <div class="col-md-6 col-md-offset-3" style="margin-top: -26%;;
+               <div class="col-md-6 col-md-offset-3" style="margin-top: -26%;width:25%;
     margin-left: 25%">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -109,6 +112,40 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
 
                    
 </div>
+   <div class="col-md-6 col-md-offset-3" style="margin-top: -26%; margin-left: 59%;margin-bottom: 5%;width: 56%;">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Delete Image Slider</h4>
+            </div>
+            <div class="panel-body">
+                <?php $attributes = array("name" => "imagesliderform");
+               echo form_open_multipart('admin/delete_SliderImage');?>
+                <div class="form-group">
+                   <label for="imageslider">ImageSlider</label>
+                    <?php $attributes = 'class = "form-control2" id = "imageslider" style="margin-left: 2%;"';
+                   echo form_dropdown('imageslider',$imageslider,set_value('imageslider'),$attributes);?>
+                      <span class="text-danger"><?php echo form_error('imageslider'); ?></span>
+                </div>
+                <div id="image11" style="margin-left: 18%;"></div>
+                <div class="form-group">
+                    <button name="submit" type="submit" class="btn btn-default">Delete Slider Image</button>
+                    <button name="cancel" type="reset" class="btn btn-default">Cancel</button>
+                </div>
+                <?php echo form_close(); ?>
+                <?php echo $this->session->flashdata('verify_msg'); ?>
+                <?php if(isset($dipsucess)){?>
+                <div style=" margin-left: 21%; width: 58%;align: center;" >
+                 <font size="3" color="green"><p><strong>Good!</strong>ImageSlider Deleted Sucessfully!!</p></font> 
+                </div>
+               <?php }?>
+              <?php if(isset($diperror)){?>
+                <div style=" margin-left: 21%; width: 58%;align: center;" >
+                 <font size="3" color="green"><p><strong>Good!</strong>Some error Occured try again!!</p></font> 
+                </div>
+               <?php }?>
+            </div>
+        </div>
+    </div>  
 
 
 <!-- Modal ->
@@ -116,7 +153,6 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
-    
-    <script src="js/scripts.js"></script>
+    <script src=<?php echo site_url("js/scripts.js")?>></script>
   </body>
 </html>

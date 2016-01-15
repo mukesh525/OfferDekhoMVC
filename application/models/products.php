@@ -29,6 +29,25 @@ Class Products extends CI_Model {
         return $category_result = array_combine($product_id,$product_name);
        
     }
+  
+     public function getImageSlidertName() {
+            $this->db->select('id'); 
+            $this->db->select('name'); 
+            $this->db->from('imageslider');
+            $query = $this->db->get();
+            $result = $query->result();
+            
+             $imageslider_id = array('-SELECT-');
+             $imageslider_name = array('-SELECT-');
+
+        for ($i = 0; $i < count($result); $i++)
+        {
+            array_push($imageslider_id , $result[$i]->id);
+            array_push($imageslider_name, $result[$i]->name);
+        }
+        return $imageslider_result = array_combine($imageslider_id,$imageslider_name);
+       
+    }
     
     
     function delete_product($id){ 
@@ -36,8 +55,10 @@ Class Products extends CI_Model {
           $image=$this->getProductImage($id);
         // $path=base_url()."images/".$image;
          $path="images/".$image;
-         if(@unlink($path)) {echo "Deleted file ";exit();}
-         else{echo $path."File can't be deleted";exit();}
+         if(@unlink($path)) {//echo "Deleted file ";exit();
+             }
+         else{//echo $path."File can't be deleted";exit();
+         }
           $this->db->where('id', $id);
           $this->db->delete('products'); 
         if($this->db->affected_rows()>0){
@@ -48,11 +69,37 @@ Class Products extends CI_Model {
         } 
     }
     
-     function getProductImage($Id){ 
+     function delete_imageslider($id){ 
+        //  $id = (is_numeric($id) ? (int)$id: 0);
+          $image=$this->getSliderImage($id);
+        // $path=base_url()."images/".$image;
+         $path="images/".$image;
+         if(@unlink($path)) {echo "Deleted file ";exit();
+             }
+         else{echo $path."File can't be deleted";exit();
+         }
+          $this->db->where('id', $id);
+          $this->db->delete('imageslider'); 
+        if($this->db->affected_rows()>0){
+            return true;
+        }
+        else{
+            return false;
+        } 
+    }
+   function getProductImage($Id){ 
          $int = (is_numeric($Id) ? (int)$Id : 0);
          $this->db->select('image');
          $this->db->where('id', $Id);
          $this->db->from('products');
+         return $this->db->get()->row()->image;
+        
+    }
+    function getSliderImage($Id){ 
+         $int = (is_numeric($Id) ? (int)$Id : 0);
+         $this->db->select('image');
+         $this->db->where('id', $Id);
+         $this->db->from('imageslider');
          return $this->db->get()->row()->image;
         
     }
