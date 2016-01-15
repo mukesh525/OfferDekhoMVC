@@ -9,6 +9,22 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css" />
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="shortcut icon" href="<?=base_url()?>images/logo1.png">
+    <script type="text/javascript">
+     function get_productImage() {
+     var product_selected = $('select[name=getProductImg]').val();
+     $.ajax({
+        data: {
+            product_selected: product_selected,
+        },
+        type: 'POST',
+        url: '/admin/getProductImage',
+        success: function(data){
+            console.log(data);
+            $('.subdepartment').html(data);
+        }
+    })
+}
+</script>
  <style type="text/css">
 .tg  {margin-top: 2%;width: 100%;margin-left: -4%;border-collapse:collapse;border: 1px solid black;;border-spacing: 0;}
 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-width:1px;border: 1px solid black;overflow:hidden;word-break:normal;}
@@ -61,8 +77,8 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
            </div>
             
            <div class="row">
-               <div class="col-md-6 col-md-offset-3" style="margin-top: -26%;;
-    margin-left: 25%">
+               <div class="col-md-6 col-md-offset-3" style="margin-top: -26%;
+    margin-left: 18%;width: 46%;">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4>Add Product</h4>
@@ -112,6 +128,7 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
 
                 <div class="form-group">
                     <button name="submit" type="submit" class="btn btn-default">Add Product</button>
+                  
                     <button name="cancel" type="reset" class="btn btn-default">Cancel</button>
                 </div>
                 <?php echo form_close(); ?>
@@ -122,6 +139,48 @@ background-color: #fff;background-image: none;border: .0625rem solid #ccc;border
                 </div>
                <?php }?>
               <?php if(isset($perror)){?>
+                <div style=" margin-left: 21%; width: 58%;align: center;" >
+                 <font size="3" color="green"><p><strong>Good!</strong>Some error Occured try again!!</p></font> 
+                </div>
+               <?php }?>
+            </div>
+        </div>
+                  <div class="col-md-6 col-md-offset-3" style="margin-top: -46%;;
+    margin-left: 68%">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Delete Product</h4>
+            </div>
+            <div class="panel-body">
+                <?php $attributes = array("name" => "productform");
+               echo form_open_multipart('admin/delete_product');?>
+                <div class="form-group">
+                   <label for="products">Brand</label>
+                     <?php $attributes = 'class = "form-control1" style="margin-left: 7%" id = "brand"';
+                     $js ='onChange="message()"';
+               echo "<script type=\"text/javascript\" > function message(){ 
+                     alert('hello')};
+                     </script>";
+                      echo form_dropdown('products',$products,$js),set_value('products'),$attributes;?>
+                      <span class="text-danger"><?php echo form_error('products'); ?></span>
+            
+                </div>
+                 <div for='newEmp' class="subdepartment"></div>
+                
+
+                <div class="form-group">
+                    <button name="submit" type="submit" class="btn btn-default">GetImage</button>
+                    <button name="submit" type="submit" class="btn btn-default">Delete Product</button>
+                    <button name="cancel" type="reset" class="btn btn-default">Cancel</button>
+                </div>
+                <?php echo form_close(); ?>
+                <?php echo $this->session->flashdata('verify_msg'); ?>
+                <?php if(isset($dpsucess)){?>
+                <div style=" margin-left: 21%; width: 58%;align: center;" >
+                 <font size="3" color="green"><p><strong>Good!</strong>Product Added Sucessfully!!</p></font> 
+                </div>
+               <?php }?>
+              <?php if(isset($dperror)){?>
                 <div style=" margin-left: 21%; width: 58%;align: center;" >
                  <font size="3" color="green"><p><strong>Good!</strong>Some error Occured try again!!</p></font> 
                 </div>
