@@ -45,7 +45,7 @@ $('#imageslider').change(function(){
             success: function(data){
                  if($.trim(data)!='empty'){
                    $("#image11").show();
-                  $('#image11').html('<img style="width:100%;margin-bottom: 3%;margin-left: -11%;s" src="'+BASE_URL+"images/"+data+'">')
+                  $('#image11').html('<img style="width:100%;margin-bottom: 3%;margin-left:0%;" src="'+BASE_URL+"images/"+data+'">')
                }
                 else{
                      $("#image11").hide();

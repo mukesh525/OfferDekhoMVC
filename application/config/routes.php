@@ -45,8 +45,11 @@ $route['404_override'] = '';
  $route['GetType/(.*)']='welcome/getType/$1';      
  $route['GetBrands/(.*)']='welcome/getBrands/$1';  
  $route['Admin']='admin';  
- 
-
+ $route['AddAdmin']='admin/register'; 
+ $route['AddProduct']='admin/addProduct';
+ $route['AddImage']='admin/addImageSlider';
+ $route['Logout']='admin/logout';
+ $route['AddBrandCategory']='admin/login';
 
 
 /* End of file routes.php */

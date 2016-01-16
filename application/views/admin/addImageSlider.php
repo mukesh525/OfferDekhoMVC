@@ -1,6 +1,6 @@
 <div style="margin-top: 2%;width:83%;height:100%;margin-left: 0%;float: right;">
 
-               <div class="col-md-6 col-md-offset-3" style="width:25%;
+               <div class="col-md-6 col-md-offset-3" style="width:28%;
     margin-left: 6%;    margin-top: 5%;">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -61,7 +61,7 @@
                    echo form_dropdown('imageslider',$imageslider,set_value('imageslider'),$attributes);?>
                       <span class="text-danger"><?php echo form_error('imageslider'); ?></span>
                 </div>
-                <div id="image11" style="margin-left: 18%;"></div>
+                <div id="image11" style="margin-left: 0%;"></div>
                 <div class="form-group">
                     <button name="submit" type="submit" class="btn btn-default">Delete Slider Image</button>
                     <button name="cancel" type="reset" class="btn btn-default">Cancel</button>
