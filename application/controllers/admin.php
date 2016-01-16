@@ -32,6 +32,33 @@ class Admin extends CI_Controller
         }
     }
     
+    
+     public function SendEmail($Username){
+       $config = Array(
+    'protocol' => 'smtp',
+    'smtp_host' => "smtp.gmail.com",
+    'smtp_port' => 465,
+    'smtp_user' => 'mukeshjha2007@gmail.com',
+    'smtp_pass' => 'ASDQWE!@#',
+    'mailtype'  => 'html', 
+    'charset'   => 'utf-8'
+    );
+     $this->load->library('email', $config);
+     $this->email->set_newline("\r\n");
+     $this->email->from('mukeshjha2007@gmail.com', 'Mukesh Jha');
+     $this->email->to('mukeshjha313@gmail.com'); 
+     $this->email->subject('Admin Login Alert');
+     $this->email->message('Admin '+$Username+' is logged in to admin panel of OfferDekho');  
+     $result = $this->email->send();
+     
+    }
+    
+    
+    
+    
+    
+    
+    
     public function login()
     {
         $rules = array(
@@ -56,6 +83,7 @@ class Admin extends CI_Controller
             } else {
                 $this->data['error'] = "false";
                 $this->load->view("admin/login", $this->data);
+                $this->SendEmail($this->input->post('l_email'));
             }
         }
     }
@@ -64,14 +92,27 @@ class Admin extends CI_Controller
         $this->load->view('admin/addadmin');
     }
      public function getProductImage($id){
-      $image = $this->products-> getProductImage($id);
-      echo $image;
+         if($id=='-SELECT-'){
+             echo 'empty';
+         }
+        else{
+        $image = $this->products-> getProductImage($id);
+         echo $image;
+        }
+         
+       
+      
+      
     }
     
     
      public function getSliderImage($id){
-       $image = $this->products->getSliderImage($id);
-       echo $image;
+         if($id=='-SELECT-'){
+          echo 'empty';
+         }else{
+         $image = $this->products->getSliderImage($id);
+         echo $image;
+        }
       
     }
      public function delete_product(){

@@ -88,12 +88,13 @@ Class Products extends CI_Model {
         } 
     }
    function getProductImage($Id){ 
+      
          $int = (is_numeric($Id) ? (int)$Id : 0);
          $this->db->select('image');
          $this->db->where('id', $Id);
          $this->db->from('products');
          return $this->db->get()->row()->image;
-        
+    
     }
     function getSliderImage($Id){ 
          $int = (is_numeric($Id) ? (int)$Id : 0);
