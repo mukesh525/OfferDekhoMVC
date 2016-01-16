@@ -34,32 +34,28 @@ class Admin extends CI_Controller
     
     
      public function SendEmail($Username){
-       $config = Array(
-    'protocol' => 'smtp',
-    'smtp_host' => "smtp.gmail.com",
-    'smtp_port' => 465,
-    'smtp_user' => 'mukeshjha2007@gmail.com',
-    'smtp_pass' => 'ASDQWE!@#',
-    'mailtype'  => 'html', 
-    'charset'   => 'utf-8'
-    );
-     $this->load->library('email', $config);
-     $this->email->set_newline("\r\n");
-     $this->email->from('mukeshjha2007@gmail.com', 'Mukesh Jha');
-     $this->email->to('mukeshjha313@gmail.com'); 
-     $this->email->subject('Admin Login Alert');
-     $this->email->message('Admin '+$Username+' is logged in to admin panel of OfferDekho');  
-     $result = $this->email->send();
-     
-    }
-    
-    
-    
-    
-    
-    
-    
-    public function login()
+     $this->load->library('email');
+    $this->email->initialize(array(
+     'protocol' => 'smtp',
+     'smtp_host' => "ssl://smtp.gmail.com",
+     'smtp_user' => 'mukeshjha2007@gmail.com',
+     'smtp_pass' => 'mrwirgycejquicjd',
+     'smtp_port' => 465,
+     'crlf' => "\r\n",
+     'newline' => "\r\n"
+));
+
+$this->email->from('mukeshjha2007@gmail.com', 'Mukesh Jha');
+$this->email->to('mukeshjha313@gmail.com');
+//$this->email->cc('another@another-example.com');
+//$this->email->bcc('them@their-example.com');
+$this->email->subject('Admin Login Alert');
+$this->email->message("Admin with eamil id ".$Username." is logged in OfferDekho admin Panel!" );
+$this->email->send();
+
+//echo $this->email->print_debugger();    
+}
+   public function login()
     {
         $rules = array(
             array(
@@ -79,11 +75,13 @@ class Admin extends CI_Controller
         } else {
             $auth = $this->user_model->login($this->input->post('l_email'), $this->input->post('l_pass'));
             if ($auth) {
-                $this->load->view("admin/dashboard", $this->data);
+                $this->SendEmail($this->input->post('l_email'));
+               
+               // $this->load->view("admin/dashboard", $this->data);
             } else {
                 $this->data['error'] = "false";
                 $this->load->view("admin/login", $this->data);
-                $this->SendEmail($this->input->post('l_email'));
+                //$this->SendEmail($this->input->post('l_email'));
             }
         }
     }
