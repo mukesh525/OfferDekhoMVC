@@ -1,7 +1,6 @@
 <div style="margin-top: 2%;width:83%;height:100%;margin-left: 0%;float: right;">
 <div class="row">
-               <div class="col-md-6 col-md-offset-3" style="margin-top: -19%;
-    margin-left: 25%">
+               <div class="col-md-6 col-md-offset-3" style="margin-top: 5%;margin-left: 8%">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4>Add Admin</h4>
