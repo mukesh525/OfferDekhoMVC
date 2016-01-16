@@ -13,6 +13,25 @@ public function register_user($data){
      return false;
      }
 }
+ public function getAdminName() {
+            $this->db->select('id'); 
+            $this->db->select('username'); 
+            $this->db->from('users');
+            $query = $this->db->get();
+            $result = $query->result();
+            
+             $username_id = array('-SELECT-');
+             $username_name = array('-SELECT-');
+
+        for ($i = 0; $i < count($result); $i++)
+        {
+            array_push($username_id , $result[$i]->id);
+            array_push($username_name, $result[$i]->username);
+        }
+        return $username_result = array_combine($username_id,$username_name);
+       
+    }
+
 
     function login($email,$password){
     $this->db->where("email",$email);
@@ -32,7 +51,17 @@ public function register_user($data){
     }
     
     
-    
+     function delete_admin($id){ 
+         // $id = (is_numeric($id) ? (int)$id: 0);
+         $this->db->where('id', $id);
+         $this->db->delete('users'); 
+        if($this->db->affected_rows()>0){
+            return true;
+        }
+        else{
+            return false;
+        } 
+    }
     function get_brandname()     
     { 
         $this->db->select('Id');

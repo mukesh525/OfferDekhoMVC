@@ -15,6 +15,7 @@ $('#products').change(function(){
             success: function(data){
                  if($.trim(data)!='empty'){
                    $("#image1").show();
+                   alert('<img src="'+BASE_URL+"images/"+data+'">');
                    $('#image1').html('<img src="'+BASE_URL+"images/"+data+'">')
                 }
                 else{

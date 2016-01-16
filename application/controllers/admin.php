@@ -15,7 +15,9 @@ class Admin extends CI_Controller
         ));
         $this->load->database();
         $this->data['category'] = $this->user_model->get_category();
-        $this->data['brand']    = $this->user_model->get_brandname();
+        $this->data['brand']= $this->user_model->get_brandname();
+        $this->data['admin'] = $this->user_model->getAdminName();
+        
         $this->data['products'] = $this->products->getProductName();
         $this->data['imageslider'] = $this->products->getImageSlidertName();
         $this->load->view("admin/header", $this->data);
@@ -117,9 +119,15 @@ $this->email->send();
       
     }
      public function delete_product(){
-       if ($_POST['products'] != '-SELECT-') {
-        $boolean = $this->products->delete_product($_POST['products']);
-       if($boolean){
+       $this->form_validation->set_rules('products', 'products', 'trim|required|callback_combo_check');
+       
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('admin/addproduct', $this->data);
+        } else { //insert the user registration details into database
+            
+//       if ($_POST['products'] != '-SELECT-') {
+         $boolean = $this->products->delete_product($_POST['products']);
+         if($boolean){
          $this->data['dpsucess'] = 'sucess';
          $this->data['products']  = $this->products->getProductName();
          $this->load->view('admin/addproduct', $this->data);
@@ -128,12 +136,37 @@ $this->email->send();
              $this->data['dperror'] = 'error';
             $this->load->view('admin/addproduct', $this->data);
             }
-     }else{
-         echo $this->db->_error_message();
-     }
+       }
      
      }
-        public function delete_SliderImage(){
+       
+     public function delete_admin(){
+       $this->form_validation->set_rules('admin', 'Admin', 'trim|required|callback_combo_check');
+       if ($this->form_validation->run() == FALSE) {
+            $this->load->view('admin/addadmin', $this->data);
+        } else { //insert the user registration details into database
+            
+//       if ($_POST['products'] != '-SELECT-') {
+         $boolean = $this->user_model->delete_admin($_POST['admin']);
+         if($boolean){
+         $this->data['adsucess'] = 'sucess';
+         $this->data['admin'] =$this->user_model->getAdminName();
+         $this->load->view('admin/addadmin', $this->data);
+        } 
+        else {
+             $this->data['aderror'] = 'error';
+            $this->load->view('admin/aaddadmin', $this->data);
+            }
+       }
+     
+     }
+     
+    
+     
+     
+     
+     
+     public function delete_SliderImage(){
        if ($_POST['imageslider'] != '-SELECT-') {
        $boolean = $this->products->delete_imageslider($_POST['imageslider']);
        if($boolean){
@@ -170,6 +203,7 @@ $this->email->send();
             );
             if ($this->user_model->register_user($data)) {
                 $this->data['sucess'] = "Admin added sucessfully";
+                $this->data['admin'] = $this->user_model->getAdminName();
                 $this->session->set_flashdata('verify_msg', '<div class="alert alert-success text-center">Your Email Address is successfully verified! ' . 'Please login to access your account!</div>');
                 $this->load->view('admin/addadmin', $this->data);
             }
@@ -255,7 +289,7 @@ $this->email->send();
         $this->form_validation->set_rules('image', 'Profile Image', 'callback_image_upload');
         $this->form_validation->set_rules('location', 'Location', 'trim|required');
         $this->form_validation->set_rules('brand', 'brand', 'trim|required|callback_combo_check');
-         $this->form_validation->set_rules('products', 'products', 'trim|required|callback_combo_check');
+      
         $this->form_validation->set_rules('category', 'category', 'trim|required|callback_combo_check');
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('admin/addproduct', $this->data);
