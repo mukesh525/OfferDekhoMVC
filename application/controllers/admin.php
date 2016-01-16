@@ -9,10 +9,7 @@ class Admin extends CI_Controller
         $this->load->model('user_model');
         $this->load->model('products');
         $this->load->library('session');
-        $this->load->helper(array(
-            'form',
-            'url'
-        ));
+        $this->load->helper(array('form','url' ));
         $this->load->database();
         $this->data['category'] = $this->user_model->get_category();
         $this->data['brand']= $this->user_model->get_brandname();
@@ -20,9 +17,10 @@ class Admin extends CI_Controller
         
         $this->data['products'] = $this->products->getProductName();
         $this->data['imageslider'] = $this->products->getImageSlidertName();
-        $this->load->view("admin/header", $this->data);
-        $this->load->view("admin/leftpanel", $this->data);
-        
+        if (($this->session->userdata('user_id') != "")) {
+       $this->load->view("admin/header", $this->data);
+       $this->load->view("admin/leftpanel", $this->data);
+        }
     }
     
     public function index()
@@ -30,7 +28,9 @@ class Admin extends CI_Controller
         $this->data['category'] = $this->user_model->get_category();
         $this->data['brand']    = $this->user_model->get_brandname();
         if (($this->session->userdata('user_id') != "")) {
-            $this->load->view('admin/addbrandCategory', $this->data);
+          // $this->load->view("admin/header", $this->data);
+         //  $this->load->view("admin/leftpanel", $this->data);
+           $this->load->view('admin/addbrandCategory', $this->data);
         } else {
             $this->load->view("admin/login");
         }
@@ -80,11 +80,13 @@ $this->email->send();
             $auth = $this->user_model->login($this->input->post('l_email'), $this->input->post('l_pass'));
             if ($auth) {
                 $this->SendEmail($this->input->post('l_email'));
-               
-                $this->load->view("admin/addadmin", $this->data);
+                 redirect(base_url("admin"), 'refresh'); 
+                //$this->index();
+                //$this->load->view("admin/addbrandCategory", $this->data);
                 //$this->load->view("admin/dashboard", $this->data);
             } else {
                 $this->data['error'] = "false";
+                $this->index();
                 $this->load->view("admin/login", $this->data);
                 //$this->SendEmail($this->input->post('l_email'));
             }
@@ -96,11 +98,11 @@ $this->email->send();
     }
      public function getProductImage($id){
          if($id=='-SELECT-'){
-             echo 'empty';
+             echo 'empty';exit();
          }
         else{
         $image = $this->products-> getProductImage($id);
-         echo $image;
+         echo $image;exit();
         }
          
        
@@ -111,10 +113,10 @@ $this->email->send();
     
      public function getSliderImage($id){
          if($id=='-SELECT-'){
-          echo 'empty';
+          echo 'empty';exit();
          }else{
          $image = $this->products->getSliderImage($id);
-         echo $image;
+         echo $image;exit();
         }
       
     }
@@ -212,8 +214,11 @@ $this->email->send();
     
     public function logout()
     {
+        //redirect(base_url('/logout/index'));
         $this->session->sess_destroy();
-        $this->load->view("admin/login");
+        redirect(base_url("admin"), 'refresh'); 
+    //  $this->load->view("admin/login");
+     //  $this->index();
     }
     
     public function DeleteBrand()
