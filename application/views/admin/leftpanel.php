@@ -1,4 +1,4 @@
-<div style="width: 17%;height: 100%;float:left;margin-top: 4%;background: #ff9999;padding-top: 5%" id="sidebar" role="navigation">
+<div style="width: 17%;height: 100%;float:left;margin-top: 4%;background:#46647D;padding-top: 5%" id="sidebar" role="navigation">
             <ul class="nav nav-pills nav-stacked"id="navigation">
                 <li><a class="nav-link" href="<?php echo site_url('AddBrandCategory');?>">Brand/Category</a></li>
                 <li><a class="nav-link"href="<?php echo site_url('AddAdmin');?>">Admin</a></li>
@@ -15,6 +15,10 @@
     border: 1px solid #888;
     background-color: #white;
     background-image:none;
+}
+  a {
+    color: #FFF;
+    text-decoration: none;
 }
 </style>
  
