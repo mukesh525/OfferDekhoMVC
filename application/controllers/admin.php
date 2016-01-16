@@ -18,6 +18,8 @@ class Admin extends CI_Controller
         $this->data['brand']    = $this->user_model->get_brandname();
         $this->data['products'] = $this->products->getProductName();
         $this->data['imageslider'] = $this->products->getImageSlidertName();
+        $this->load->view("admin/header", $this->data);
+        $this->load->view("admin/leftpanel", $this->data);
         
     }
     
@@ -26,7 +28,7 @@ class Admin extends CI_Controller
         $this->data['category'] = $this->user_model->get_category();
         $this->data['brand']    = $this->user_model->get_brandname();
         if (($this->session->userdata('user_id') != "")) {
-            $this->load->view('admin/dashboard', $this->data);
+            $this->load->view('admin/addadmin', $this->data);
         } else {
             $this->load->view("admin/login");
         }
@@ -77,7 +79,8 @@ $this->email->send();
             if ($auth) {
                 $this->SendEmail($this->input->post('l_email'));
                
-               // $this->load->view("admin/dashboard", $this->data);
+                $this->load->view("admin/addadmin", $this->data);
+                //$this->load->view("admin/dashboard", $this->data);
             } else {
                 $this->data['error'] = "false";
                 $this->load->view("admin/login", $this->data);
