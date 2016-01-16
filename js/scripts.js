@@ -8,6 +8,7 @@ $(document).ready(function() {
 
 $('#products').change(function(){
        var r=$('#products').val();
+      // alert(r);
        $.ajax({ 
             type: "POST", 
             url:BASE_URL+"/admin/getProductImage/"+r, 

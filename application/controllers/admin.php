@@ -28,7 +28,7 @@ class Admin extends CI_Controller
         $this->data['category'] = $this->user_model->get_category();
         $this->data['brand']    = $this->user_model->get_brandname();
         if (($this->session->userdata('user_id') != "")) {
-            $this->load->view('admin/addadmin', $this->data);
+            $this->load->view('admin/addbrandCategory', $this->data);
         } else {
             $this->load->view("admin/login");
         }
