@@ -1,4 +1,5 @@
- <div class="container" style="margin-top: 2%;width:83%;height:100%;margin-left: 0%;float: right;">
+<body>
+<div class="container" style="margin-top: 2%;width:83%;height:100%;margin-left: 0%;float: right;">
        <div class="row">
                <div class="col-md-6 col-md-offset-3" style="margin-top:5%;
     margin-left: 5%;width: 32%;float: left;">
@@ -83,7 +84,8 @@
                  echo form_dropdown('products',$products,set_value('products'),$attributes);?>
                       <span class="text-danger"><?php echo form_error('products'); ?></span>
                 </div>
-                <div id="image1" style="margin-left: 18%;"></div>
+<!--                <div id="image1" style="margin-left: 18%;"></div>-->
+                <div id="image8" style="margin-left: 18%;"></div>
                 <div class="form-group">
                     <button name="submit" type="submit" class="btn btn-default">Delete Product</button>
                     <button name="cancel" type="reset" class="btn btn-default">Cancel</button>
@@ -108,8 +110,6 @@
 </div>
         </div>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
     <script src=<?php echo site_url("js/scripts.js")?>></script>
   </body>
 </html>

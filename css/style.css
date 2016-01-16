@@ -8,6 +8,13 @@ body{
 	background:#fff;
 	font-family: 'Lato', sans-serif;
 }
+
+
+
+
+/*.selected{
+border: 1px solid #888;
+background-color: #white;}*/
 body a{
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;

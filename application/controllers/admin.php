@@ -294,7 +294,6 @@ $this->email->send();
         $this->form_validation->set_rules('image', 'Profile Image', 'callback_image_upload');
         $this->form_validation->set_rules('location', 'Location', 'trim|required');
         $this->form_validation->set_rules('brand', 'brand', 'trim|required|callback_combo_check');
-      
         $this->form_validation->set_rules('category', 'category', 'trim|required|callback_combo_check');
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('admin/addproduct', $this->data);
@@ -305,7 +304,7 @@ $this->email->send();
             
             $data = array(
                 'name' => $this->input->post('name'),
-                'discount' => $this->input->post('email'),
+                'discount' => $this->input->post('discount'),
                 'image' => $file_name,
                 'location' => $this->input->post('location'),
                 'category' => $this->input->post('category'),
