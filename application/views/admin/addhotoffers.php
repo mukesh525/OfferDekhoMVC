@@ -58,15 +58,15 @@
                 <h4>Delete HotOfffer</h4>
             </div>
             <div class="panel-body">
-                <?php $attributes = array("name" => "imagesliderform");
+                <?php $attributes = array("name" => "hotoffersform");
                echo form_open_multipart('admin/delete_SliderImage');?>
                 <div class="form-group">
-                   <label for="imageslider">ImageSlider</label>
-                    <?php $attributes = 'class = "form-control2" id = "imageslider" style="margin-left: 2%;"';
-                   echo form_dropdown('imageslider',$imageslider,set_value('imageslider'),$attributes);?>
-                      <span class="text-danger"><?php echo form_error('imageslider'); ?></span>
+                   <label for="imageslider">HotOffers</label>
+                    <?php $attributes = 'class = "form-control2" id = "hotoffers" style="margin-left: 2%;"';
+                   echo form_dropdown('hotoffers',$hotoffers,set_value('hotoffers'),$attributes);?>
+                      <span class="text-danger"><?php echo form_error('hotoffers'); ?></span>
                 </div>
-                <div id="image11" style="margin-left: 0%;"></div>
+                <div id="image13" style="margin-left: 0%;"></div>
                 <div class="form-group">
                     <button name="submit" type="submit" class="btn btn-default">Delete Hot Offer</button>
                     <button name="cancel" type="reset" class="btn btn-default">Cancel</button>

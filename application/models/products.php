@@ -50,6 +50,27 @@ Class Products extends CI_Model {
     }
     
     
+    
+      public function getHotOffersName() {
+            $this->db->select('id'); 
+            $this->db->select('name'); 
+            $this->db->from('hotoffers');
+            $query = $this->db->get();
+            $result = $query->result();
+            
+             $hotoffers_id = array('-SELECT-');
+             $hotoffers_name = array('-SELECT-');
+
+        for ($i = 0; $i < count($result); $i++)
+        {
+            array_push($hotoffers_id , $result[$i]->id);
+            array_push($hotoffers_name, $result[$i]->name);
+        }
+        return $hotoffers_result = array_combine($hotoffers_id,$hotoffers_name);
+       
+    }
+    
+    
     function delete_product($id){ 
          // $id = (is_numeric($id) ? (int)$id: 0);
           $image=$this->getProductImage($id);
@@ -101,6 +122,14 @@ Class Products extends CI_Model {
          $this->db->select('image');
          $this->db->where('id', $Id);
          $this->db->from('imageslider');
+         return $this->db->get()->row()->image;
+        
+    }
+    function getHotOffersImage($Id){ 
+         $int = (is_numeric($Id) ? (int)$Id : 0);
+         $this->db->select('image');
+         $this->db->where('id', $Id);
+         $this->db->from('hotoffers');
          return $this->db->get()->row()->image;
         
     }

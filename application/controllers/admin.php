@@ -16,7 +16,8 @@ class Admin extends CI_Controller
         $this->data['admin'] = $this->user_model->getAdminName();
         
         $this->data['products'] = $this->products->getProductName();
-        $this->data['imageslider'] = $this->products->getImageSlidertName();
+        $this->data['imageslider'] =$this->products->getImageSlidertName();
+        $this->data['hotoffers'] = $this->products->getHotOffersName();
         if (($this->session->userdata('user_id') != "")) {
        $this->load->view("admin/header", $this->data);
        $this->load->view("admin/leftpanel", $this->data);
@@ -126,6 +127,20 @@ $this->email->send();
         }
       
     }
+    
+     public function getHotOffersImage($id){
+         if($id=='-SELECT-'){
+          echo 'empty';exit();
+         }else{
+         $image = $this->products->getHotOffersImage($id);
+         echo $image;exit();
+        }
+      
+    }
+    
+    
+    
+    
      public function delete_product(){
        $this->form_validation->set_rules('products', 'products', 'trim|required|callback_combo_check');
        

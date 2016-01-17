@@ -36,7 +36,7 @@ $('#products').change(function(){
             });
         });
         
-$('#imageslider').change(function(){
+$('#hotoffers').change(function(){
        var r=$('#imageslider').val();
         //alert(r);
        $.ajax({ 
@@ -51,4 +51,20 @@ $('#imageslider').change(function(){
                      $("#image11").hide();
                 }   }
             });
-        });        
+        });       
+        $('#hotoffers').change(function(){
+       var r=$('#hotoffers').val();
+        //alert(r);
+       $.ajax({ 
+            type: "POST", 
+            url:BASE_URL+"/admin/getHotOffersImage/"+r, 
+            success: function(data){
+                 if($.trim(data)!='empty'){
+                   $("#image13").show();
+                  $('#image13').html('<img style="width:16%;margin-bottom: 3%;margin-left:17%;" src="'+BASE_URL+"images/"+data+'">')
+               }
+                else{
+                     $("#image13").hide();
+                }   }
+            });
+        });    
