@@ -1,9 +1,9 @@
 <div class="offers">
 	 <div class="container">
 	 <h3>End of Season Sale</h3>
+          <?php $result = count($result4); $i=0;while($i<$result){?>
 	 <div class="offer-grids">
-             <?php $result = count($result4); for($i=0;$i<$result-1;$i++)  {?>
-		 <div class="col-md-6 grid-left">
+             <div class="col-md-6 grid-left">
 			 <a href="#"><div class="offer-grid1">
 				 <div class="ofr-pic">
 					 <img src="<?=base_url()?>images/<?php echo $result4[$i]['image']?>" class="img-responsive" alt=""/>
@@ -31,7 +31,9 @@
 			 </div></a>
 		 </div>
 		 <div class="clearfix"></div>
-                  <?php }?>
+              
 	 </div>
+             <?php $i=$i+2;};?>
 	 </div>
+</div>
 </div>

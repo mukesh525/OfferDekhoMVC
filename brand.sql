@@ -46,3 +46,20 @@ INSERT INTO `imageslider` (`id`, `image`, `name`, `description`) VALUES
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE IF NOT EXISTS `hotoffers` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  `discount` int(10) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `location` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `hotoffers`
+--
+
+INSERT INTO `hotoffers` (`id`, `name`, `discount`, `image`, `location`) VALUES
+(1, 'Emergency Lights & Led Bulds', 60, 'ofr2.jpeg', 'Bangalore'),
+(2, 'Outdoor Gate Lights', 30, 'ofr3.jpg', 'Bangalore');
