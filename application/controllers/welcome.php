@@ -12,12 +12,14 @@ class Welcome extends CI_Controller {
          public function index(){ 
                 $result=$this->products->get_ImageSLiderData();
                 $result2=$this->products->get_random_product();
+                $result3=$this->products->getHotOffers();
                 $result['result1']=$result;
                 $result2['result3']=$result2;
+                $result3['result4']=$result3;
                 
                 $this->load->view('templates/imageslider',$result);
                 $this->load->view('templates/containers',$result2);
-                $this->load->view('templates/offers');
+                $this->load->view('templates/offers',$result3);
                 $this->load->view('templates/footer');
         }
          function getType($type) {

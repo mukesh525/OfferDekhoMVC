@@ -2,14 +2,15 @@
 	 <div class="container">
 	 <h3>End of Season Sale</h3>
 	 <div class="offer-grids">
+             <?php for($i=0;$i< sizeof($result4);$i+2)  {?>
 		 <div class="col-md-6 grid-left">
 			 <a href="#"><div class="offer-grid1">
 				 <div class="ofr-pic">
-					 <img src="<?=base_url()?>images/ofr2.jpeg" class="img-responsive" alt=""/>
+					 <img src="<?=base_url()?>images/<?php echo $result4[$i]['image']?>" class="img-responsive" alt=""/>
 				 </div>
 				 <div class="ofr-pic-info">
-					 <h4>Emergency Lights <br>& Led Bulds</h4>
-					 <span>UP TO 60% OFF</span>
+					 <h4><?php echo $result4[$i]['name']?> <br></h4>
+					 <span>UP TO <?php echo $result4[$i]['discount']?>% OFF</span>
 					 <p>Shop Now</p>
 				 </div>
 				 <div class="clearfix"></div>
@@ -19,17 +20,18 @@
 			 <a href="#"><div class="offer-grid2">				 
 				 <div class="ofr-pic-info2">
 					 <h4>Flat Discount</h4>
-					 <span>UP TO 30% OFF</span>
-					 <h5>Outdoor Gate Lights</h5>
+					 <span>UP TO <?php echo $result4[$i+1]['discount']?>% OFF</span>
+					 <h5><?php echo $result4[$i+1]['name']?></h5>
 					 <p>Shop Now</p>
 				 </div>
 				 <div class="ofr-pic2">
-					 <img src="<?=base_url()?>images/ofr3.jpg" class="img-responsive" alt=""/>
+					 <img src="<?=base_url()?>images/<?php echo $result4[$i+1]['image']?>" class="img-responsive" alt=""/>
 				 </div>
 				 <div class="clearfix"></div>
 			 </div></a>
 		 </div>
 		 <div class="clearfix"></div>
+                  <?php }?>
 	 </div>
 	 </div>
 </div>

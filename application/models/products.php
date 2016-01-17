@@ -122,7 +122,16 @@ Class Products extends CI_Model {
            $query = $this->db->get_where('products',array('brand'=>$result[0]['Id']));
            return $query->result_array();
     }
-     function addProduct($data) {
+    
+    
+     public function getHotOffers() {
+           $this->db->select('*');
+           $this->db->from('hotoffers');
+           $query = $this->db->get();
+           return $query->result_array();
+    }
+    
+   function addProduct($data) {
           $query=$this->db->insert('products',$data);
           if($query){
           return true;
