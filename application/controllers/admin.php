@@ -111,11 +111,7 @@ $this->email->send();
         $image = $this->products-> getProductImage($id);
          echo $image;exit();
         }
-         
-       
-      
-      
-    }
+   }
     
     
      public function getSliderImage($id){
@@ -206,8 +202,27 @@ $this->email->send();
      }
      
      }
-    
-    public function do_register()
+     
+      public function delete_HotOfferImage(){
+       if ($_POST['hotoffers'] != '-SELECT-') {
+       $boolean = $this->products->delete_hotoffer($_POST['hotoffers']);
+       if($boolean){
+         $this->data['hfsucess'] = 'sucess';
+         $this->data['hotoffers'] =$this->products->getHotOffersName();
+         $this->load->view('admin/addhotoffers', $this->data);
+        } 
+        else {
+             $this->data['hfperror'] = 'error';
+            $this->load->view('admin/addhotoffers', $this->data);
+            }
+     }else{
+         echo $this->db->_error_message();
+     }
+     
+     }
+     
+     
+  public function do_register()
     {
         
         $this->form_validation->set_rules('uname', 'User Name', 'trim|required|min_length[3]|max_length[30]|xss_clean');
@@ -393,6 +408,7 @@ $this->email->send();
              $boolean = $this->products->addHotOffersData($data);
              if($boolean){
                $this->data['hosucess'] = 'sucess';  
+               $this->data['hotoffers'] = $this->products->getHotOffersName();
                $this->load->view('admin/addhotoffers', $this->data);
              }else{
                $this->data['hoerror'] = 'error';  
