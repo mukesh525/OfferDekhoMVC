@@ -125,11 +125,9 @@ Class Products extends CI_Model {
     
     
      public function getHotOffers() {
-           $this->db->select('*');
-           $this->db->from('hotoffers');
-           $query = $this->db->get();
+           $query= $this->db->get('hotoffers');   
            return $query->result_array();
-    }
+     }
     
    function addProduct($data) {
           $query=$this->db->insert('products',$data);

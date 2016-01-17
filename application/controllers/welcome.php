@@ -16,7 +16,7 @@ class Welcome extends CI_Controller {
                 $result['result1']=$result;
                 $result2['result3']=$result2;
                 $result3['result4']=$result3;
-                
+               // print_r($result3);exit();
                 $this->load->view('templates/imageslider',$result);
                 $this->load->view('templates/containers',$result2);
                 $this->load->view('templates/offers',$result3);
@@ -66,14 +66,3 @@ class Welcome extends CI_Controller {
               $this->load->view('admin/login');
          }
 }
-    
-            
-              
-     
-            
-            
-        
-
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
