@@ -35,6 +35,12 @@ class Admin extends CI_Controller
             $this->load->view("admin/login");
         }
     }
+     public function view()
+    {
+        // echo 'view';
+        // var_dump($_POST);
+     // print_r($_POST['image']);
+    }
     
     
      public function SendEmail($Username){
