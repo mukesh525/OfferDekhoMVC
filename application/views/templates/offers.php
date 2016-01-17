@@ -2,7 +2,7 @@
 	 <div class="container">
 	 <h3>End of Season Sale</h3>
 	 <div class="offer-grids">
-             <?php for($i=0;$i< sizeof($result4);$i+2)  {?>
+             <?php $result = count($result4); for($i=0;$i<$result-1;$i++)  {?>
 		 <div class="col-md-6 grid-left">
 			 <a href="#"><div class="offer-grid1">
 				 <div class="ofr-pic">
