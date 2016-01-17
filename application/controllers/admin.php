@@ -283,10 +283,12 @@ $this->email->send();
         }
     }
     
-    public function addProduct()
-    {
-       
-        $this->load->view('admin/addproduct', $this->data);
+    public function addProduct(){
+     $this->load->view('admin/addproduct', $this->data);
+    }
+    
+    public function addHotOffers(){
+     $this->load->view('admin/addhotoffers', $this->data);
     }
      public function  addImageSlider()
     {
@@ -326,8 +328,7 @@ $this->email->send();
              }
         }
     }
-     public function add_ImageSlider()
-    {
+     public function add_ImageSlider(){
         $this->form_validation->set_rules('name', 'Name', 'trim|required');
         $this->form_validation->set_rules('image', 'Image', 'callback_image_upload1');
         $this->form_validation->set_rules('description', 'Description', 'trim|required');
@@ -354,8 +355,100 @@ $this->email->send();
              }
         }
     }
+    
+     public function add_HotOffers(){
+        $this->form_validation->set_rules('name', 'Name', 'trim|required');
+        $this->form_validation->set_rules('image', 'Image', 'callback_image_upload2');
+        $this->form_validation->set_rules('discount','Discount','trim|required|numeric|xss_clean|max_length[2]');
+        $this->form_validation->set_rules('location','Location','trim|required');
+      
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('admin/addhotoffers', $this->data);
+        } else {
+            $this->upload->do_upload('image');
+            $upload_data = $this->upload->data();
+            $file_name   = $upload_data['file_name'];
+            
+            $data = array(
+                'name' => $this->input->post('name'),
+                'discount' => $this->input->post('discount'),
+                'location' => $this->input->post('location'),
+                'image' => $file_name,
+                );
+             $boolean = $this->products->addHotOffersData($data);
+             if($boolean){
+               $this->data['hosucess'] = 'sucess';  
+               $this->load->view('admin/addhotoffers', $this->data);
+             }else{
+               $this->data['hoerror'] = 'error';  
+               $this->load->view('admin/addhotoffers', $this->data);
+             }
+        }
+    }
    
-    public function image_upload()
+   
+    public function image_upload2()
+    {
+        
+        if ($_FILES['image']['size'] != 0) {
+            $upload_dir = './images/';
+            if (!is_dir($upload_dir)) {
+                mkdir($upload_dir);
+            }
+            
+            $config['upload_path']   = $upload_dir;
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['file_name']     = 'image_' . substr(md5(rand()), 0, 7);
+            $config['overwrite']     = false;
+            $config['max_size']      = '1000000';
+            $config['max_width']     = 196;
+            $config['max_height']     = 400;
+            
+        
+            $this->load->library('upload', $config);
+            //echo 'config';
+           //  print_r($_FILES['image']);exit;
+            if (!in_array($_FILES['image']['type'], array(
+                'image/gif',
+                'image/jpg',
+                'image/png',
+                'image/jpeg'
+            ))) {
+                $this->form_validation->set_message('image_upload2', "This file type is not allowed");
+                return FALSE;
+                
+            } else {
+                    $imageSize = $_FILES["image"]['tmp_name'];
+                    $imgSize1 = @getImageSize($imageSize);  
+                    $imageWidth = $imgSize1[0];
+                    $imageHeigth = $imgSize1[1];
+//                    print_r($imageHeigth);
+//                    print_r($imageWidth); exit();
+             
+                
+                if ($_FILES['image']['size'] > 1000000) {
+                    $this->form_validation->set_message('image_upload2', "This file exeeds the size limit");
+                    return FALSE;
+                }
+                 elseif ( $imageWidth!=196 || $imageHeigth!=400) {
+                   $this->form_validation->set_message('image_upload2', "Image Resoltion must be in 166*400 width and height repectively");
+                    return FALSE; 
+                
+                 }
+                
+                else {
+                    return TRUE;
+                }
+                
+            }
+            
+            
+        } else {
+            $this->form_validation->set_message('image_upload', "No file selected");
+            return false;
+        }
+    }
+     public function image_upload()
     {
         
         if ($_FILES['image']['size'] != 0) {
@@ -477,6 +570,7 @@ $this->email->send();
             return false;
         }
     }
+
     public function AddCategory(){
         if ($_POST['category_name'] != "") {
             $boolean = $this->user_model->add_category($_POST['category_name']);

@@ -16,6 +16,7 @@
 				 <div class="clearfix"></div>
 			 </div></a>
 		 </div>
+             <?php if(isset($result4[$i+1])){?>
 		 <div class="col-md-6 grid-right">
 			 <a href="#"><div class="offer-grid2">				 
 				 <div class="ofr-pic-info2">
@@ -31,6 +32,7 @@
 			 </div></a>
 		 </div>
 		 <div class="clearfix"></div>
+              <?php }?>
               
 	 </div>
              <?php $i=$i+2;};?>

@@ -147,6 +147,18 @@ Class Products extends CI_Model {
         }
         
     }
+    
+     function addHotOffersData($data) {
+          $query=$this->db->insert('hotoffers',$data);
+          if($query){
+          return true;
+          } else{
+         return false;
+        }
+        
+    }
+    
+    
       function get_ImageSLiderData(){ 
         $this->db->select('id');
         $this->db->select('name');

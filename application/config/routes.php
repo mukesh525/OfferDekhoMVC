@@ -50,7 +50,8 @@ $route['404_override'] = '';
  $route['AddImage']='admin/addImageSlider';
  $route['Logout']='admin/logout';
  $route['AddBrandCategory']='admin/login';
-  $route['View']='admin/view';
+ $route['View']='admin/view';
+ $route['AddHotOffers']='admin/addHotOffers';
 
 
 /* End of file routes.php */

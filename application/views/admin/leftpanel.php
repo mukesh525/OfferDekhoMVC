@@ -4,7 +4,7 @@
                 <li><a class="nav-link"href="<?php echo site_url('AddAdmin');?>">Admin</a></li>
                 <li><a class="nav-link" href="<?php echo site_url('AddProduct');?>">Product</a></li>
                 <li><a class="nav-link" href="<?php echo site_url('AddImage');?>">ImageSlider</a></li>
-                <li><a class="nav-link" href="">Hot Offers</a></li>
+                <li><a class="nav-link" href="<?php echo site_url('AddHotOffers');?>">Hot Offers</a></li>
                 <li><a class="nav-link" href="<?php echo site_url('Logout');?>">Logout</a></li>
                
                </ul>
