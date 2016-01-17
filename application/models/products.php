@@ -108,6 +108,24 @@ Class Products extends CI_Model {
             return false;
         } 
     }
+    
+      function delete_hotoffer($id){ 
+           $image=$this->gethotoffers($id);
+          $path="images/".$image;
+         if(@unlink($path)) {//echo "Deleted file ";exit();
+             }
+         else{//echo $path."File can't be deleted";exit();
+         }
+          $this->db->where('id', $id);
+          $this->db->delete('hotoffers'); 
+        if($this->db->affected_rows()>0){
+            return true;
+        }
+        else{
+            return false;
+        } 
+    }
+    
    function getProductImage($Id){ 
       
          $int = (is_numeric($Id) ? (int)$Id : 0);
@@ -122,6 +140,14 @@ Class Products extends CI_Model {
          $this->db->select('image');
          $this->db->where('id', $Id);
          $this->db->from('imageslider');
+         return $this->db->get()->row()->image;
+        
+    }
+    function gethotoffers($Id){ 
+         $int = (is_numeric($Id) ? (int)$Id : 0);
+         $this->db->select('image');
+         $this->db->where('id', $Id);
+         $this->db->from('hotoffers');
          return $this->db->get()->row()->image;
         
     }
@@ -153,10 +179,10 @@ Class Products extends CI_Model {
     }
     
     
-     public function getHotOffers() {
-           $query= $this->db->get('hotoffers');   
-           return $query->result_array();
-     }
+     public function getHotOffers1() {
+          $query= $this->db->get('hotoffers');   
+          return $query->result_array();
+    }
     
    function addProduct($data) {
           $query=$this->db->insert('products',$data);

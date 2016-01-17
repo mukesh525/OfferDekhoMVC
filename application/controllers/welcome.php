@@ -12,7 +12,7 @@ class Welcome extends CI_Controller {
          public function index(){ 
                 $result=$this->products->get_ImageSLiderData();
                 $result2=$this->products->get_random_product();
-                $result3=$this->products->getHotOffers();
+                $result3=$this->products->getHotOffers1();
                 $result['result1']=$result;
                 $result2['result3']=$result2;
                 $result3['result4']=$result3;

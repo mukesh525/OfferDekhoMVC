@@ -38,12 +38,12 @@
                 <?php echo form_close(); ?>
                 <?php echo $this->session->flashdata('verify_msg'); ?>
                 <?php if(isset($hosucess)){?>
-                <div style=" margin-left: 21%; width: 58%;align: center;" >
+                <div style=" margin-left: 0%; width: 100%;align: center;" >
                  <font size="3" color="green"><p><strong>Good!</strong>Hot Offer Added Sucessfully!!</p></font> 
                 </div>
                <?php }?>
               <?php if(isset($hoerror)){?>
-                <div style=" margin-left: 21%; width: 58%;align: center;" >
+                <div style=" margin-left:0%; width:100%;align: center;" >
                  <font size="3" color="green"><p><strong>Good!</strong>Some error Occured try again!!</p></font> 
                 </div>
                <?php }?>
@@ -59,7 +59,7 @@
             </div>
             <div class="panel-body">
                 <?php $attributes = array("name" => "hotoffersform");
-               echo form_open_multipart('admin/delete_SliderImage');?>
+               echo form_open_multipart('admin/delete_HotOfferImage');?>
                 <div class="form-group">
                    <label for="imageslider">HotOffers</label>
                     <?php $attributes = 'class = "form-control2" id = "hotoffers" style="margin-left: 2%;"';
@@ -73,12 +73,12 @@
                 </div>
                 <?php echo form_close(); ?>
                 <?php echo $this->session->flashdata('verify_msg'); ?>
-                <?php if(isset($dipsucess)){?>
-                <div style=" margin-left: 21%; width: 58%;align: center;" >
+                <?php if(isset($hfsucess)){?>
+                <div style=" margin-left: 21%; width: 62%;align: center;" >
                  <font size="3" color="green"><p><strong>Good!</strong>HotOffer Deleted Sucessfully!!</p></font> 
                 </div>
                <?php }?>
-              <?php if(isset($diperror)){?>
+              <?php if(isset($hferror)){?>
                 <div style=" margin-left: 21%; width: 58%;align: center;" >
                  <font size="3" color="green"><p><strong>Good!</strong>Some error Occured try again!!</p></font> 
                 </div>
