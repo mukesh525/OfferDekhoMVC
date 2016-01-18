@@ -67,4 +67,16 @@ class Welcome extends CI_Controller {
         function Admin(){
               $this->load->view('admin/login');
          }
+         
+         
+         function singleproduct($id){
+              $result1['result']=$this->products->  getProductByID($id); 
+              $result3['result4']=$this->products->getHotOffers1();
+              $this->load->view('templates/single',$result1);
+              $this->load->view('templates/offers',$result3);
+              $this->load->view('templates/footer');
+              
+              
+           
+         }
 }

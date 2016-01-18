@@ -29,6 +29,17 @@ Class Products extends CI_Model {
         return $category_result = array_combine($product_id,$product_name);
        
     }
+    
+     public function getProductByID($id) {
+            $this->db->select('*'); 
+            $this->db->from('products');
+            $this->db->where('id', $id);
+            $query = $this->db->get();
+            return $query->row();
+       
+    }
+    
+    
   
      public function getImageSlidertName() {
             $this->db->select('id'); 
