@@ -71,7 +71,7 @@
                    echo form_dropdown('hotoffers',$hotoffers,set_value('hotoffers'),$attributes);?>
                       <span class="text-danger"><?php echo form_error('hotoffers'); ?></span>
                 </div>
-                <div id="image13" style="margin-left: 0%;"></div>
+                <div id="image13" style="margin-left: 0%;margin-bottom: 5%;"></div>
                 <div class="form-group">
                     <button name="submit" type="submit" class="btn btn-default">Delete Hot Offer</button>
                     <button name="cancel" type="reset" class="btn btn-default">Cancel</button>
