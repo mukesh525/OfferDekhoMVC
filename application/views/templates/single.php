@@ -1,5 +1,3 @@
-<?php // echo $result->image;exit(); ?>
-
 <div class="product"style="margin-bottom:-11%">
 	 <div class="container">				
 		 <div class="product-price1">

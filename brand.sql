@@ -50,8 +50,8 @@ INSERT INTO `products` (`id`, `name`, `discount`, `image`, `location`, `category
 (14, 'Lights 10', 40, 'p10.jpg', 'Bangalore startbazar', 10, 6, '0000-00-00'),
 (15, 'Lights 11', 60, 'p11.jpg', 'Bangalore startbazar', 10, 6, '0000-00-00'),
 (16, 'Lights 12', 30, 'p12.jpg', 'Bangalore startbazar', 10, 6, '0000-00-00'),
-(17, 'Mukesh', 0, 'image_726f6a3.png', 'kolkata', 6, 4, '0000-00-00'),
-(18, 'Muku', 10, 'image_1dfd9fb.jpg', 'kolkata', 9, 6, '2016-01-17');
+(17, 'Mukesh', 0, 'p12.jpg', 'kolkata', 6, 4, '0000-00-00'),
+(18, 'Muku', 10, 'p12.jpg', 'kolkata', 9, 6, '2016-01-17');
 
 
 

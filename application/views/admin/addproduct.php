@@ -89,8 +89,7 @@
                  echo form_dropdown('products',$products,set_value('products'),$attributes);?>
                       <span class="text-danger"><?php echo form_error('products'); ?></span>
                 </div>
-<!--                <div id="image1" style="margin-left: 18%;"></div>-->
-                <div id="image8" style="margin-left: 18%;"></div>
+                <div id="image8" style="margin-left: 18%;margin-bottom: 5%;"></div>
                 <div class="form-group">
                     <button name="submit" type="submit" class="btn btn-default">Delete Product</button>
                     <button name="cancel" type="reset" class="btn btn-default">Cancel</button>
