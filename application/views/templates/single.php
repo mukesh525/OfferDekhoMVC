@@ -1,8 +1,8 @@
 <?php // echo $result->image;exit(); ?>
 
-<div class="product">
+<div class="product"style="margin-bottom:-11%">
 	 <div class="container">				
-		 <div class="product-price1 style"margin-bottom:-16%">
+		 <div class="product-price1">
 			 <div class="top-sing">
 				  <div class="col-md-7 single-top">	
 					 <div class="flexslider">
