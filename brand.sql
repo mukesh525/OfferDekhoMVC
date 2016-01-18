@@ -37,6 +37,24 @@ CREATE TABLE IF NOT EXISTS `imageslider` (
 --
 -- Dumping data for table `imageslider`
 --
+INSERT INTO `products` (`id`, `name`, `discount`, `image`, `location`, `category`, `brand`, `valid`) VALUES
+(5, 'Lights 1', 50, 'p1.jpg', 'Banagalore near supermarket', 10, 6, '0000-00-00'),
+(6, 'Lights 2', 20, 'p2.jpg', 'Bangalore startbazar', 10, 6, '0000-00-00'),
+(7, 'Lights 3', 10, 'p3.jpg', 'Bangalore startbazar', 10, 6, '0000-00-00'),
+(8, 'Lights 4', 60, 'p4.jpg', 'Bangalore startbazar', 10, 6, '0000-00-00'),
+(9, 'Lights 5', 10, 'p5.jpg', 'Bangalore startbazar', 10, 6, '0000-00-00'),
+(10, 'Lights 6', 80, 'p6.jpg', 'Bangalore startbazar', 10, 6, '0000-00-00'),
+(11, 'Lights 7', 90, 'p7.jpg', 'Bangalore startbazar', 10, 6, '0000-00-00'),
+(12, 'Lights 8', 50, 'p8.jpg', 'Bangalore startbazar', 10, 6, '0000-00-00'),
+(13, 'Lights 9', 30, 'p9.jpg', 'Bangalore startbazar', 10, 6, '0000-00-00'),
+(14, 'Lights 10', 40, 'p10.jpg', 'Bangalore startbazar', 10, 6, '0000-00-00'),
+(15, 'Lights 11', 60, 'p11.jpg', 'Bangalore startbazar', 10, 6, '0000-00-00'),
+(16, 'Lights 12', 30, 'p12.jpg', 'Bangalore startbazar', 10, 6, '0000-00-00'),
+(17, 'Mukesh', 0, 'image_726f6a3.png', 'kolkata', 6, 4, '0000-00-00'),
+(18, 'Muku', 10, 'image_1dfd9fb.jpg', 'kolkata', 9, 6, '2016-01-17');
+
+
+
 
 INSERT INTO `imageslider` (`id`, `image`, `name`, `description`) VALUES
 (1, 'bnr2.jpg', 'Offer In Hypercity Banagalore', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit. consectetur adipiscing elit.\r\n					 '),
@@ -63,3 +81,10 @@ CREATE TABLE IF NOT EXISTS `hotoffers` (
 INSERT INTO `hotoffers` (`id`, `name`, `discount`, `image`, `location`) VALUES
 (1, 'Emergency Lights & Led Bulds', 60, 'ofr2.jpeg', 'Bangalore'),
 (2, 'Outdoor Gate Lights', 30, 'ofr3.jpg', 'Bangalore');
+
+
+CREATE EVENT test
+ON SCHEDULE EVERY 10 SECOND
+ON COMPLETION PRESERVE
+DO
+DELETE FROM `table` WHERE `expiryTime`-UNIX_TIMESTAMP() < 1

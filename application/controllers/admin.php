@@ -366,6 +366,7 @@ $this->email->send();
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('admin/addImageSlider', $this->data);
         } else {
+            $config['file_name']     = 'imageSLider_' . substr(md5(rand()), 0, 7);
             $this->upload->do_upload('image');
             $upload_data = $this->upload->data();
             $file_name   = $upload_data['file_name'];
@@ -391,13 +392,14 @@ $this->email->send();
         $this->form_validation->set_rules('image', 'Image', 'callback_image_upload2');
         $this->form_validation->set_rules('discount','Discount','trim|required|numeric|xss_clean|max_length[2]');
         $this->form_validation->set_rules('location','Location','trim|required');
-        $this->form_validation->set_rules('datepicker','Valid Till', 'trim|required');
+        $this->form_validation->set_rules('datepicker','Valid Till','trim|required');
       
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('admin/addhotoffers', $this->data);
         } else {
             $this->upload->do_upload('image');
             $upload_data = $this->upload->data();
+            
             $file_name   = $upload_data['file_name'];
             
             $data = array(
@@ -431,7 +433,7 @@ $this->email->send();
             
             $config['upload_path']   = $upload_dir;
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
-            $config['file_name']     = 'image_' . substr(md5(rand()), 0, 7);
+            $config['file_name']     = 'offer_' . substr(md5(rand()), 0, 7);
             $config['overwrite']     = false;
             $config['max_size']      = '1000000';
             $config['max_width']     = 196;
@@ -492,7 +494,7 @@ $this->email->send();
             
             $config['upload_path']   = $upload_dir;
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
-            $config['file_name']     = 'image_' . substr(md5(rand()), 0, 7);
+            $config['file_name']     = 'pro_' . substr(md5(rand()), 0, 7);
             $config['overwrite']     = false;
             $config['max_size']      = '1000000';
             $config['max_width']     = 166;
