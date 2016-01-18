@@ -14,7 +14,13 @@ $('#navigation li').click(function() {
 });
 
 
-
+   $(function() {
+                $("#datepicker").datepicker({
+                    minDate : 0,
+                    dateFormat: 'yy-mm-dd'
+                });
+                
+            });
 
 
 $('#products').change(function(){
@@ -36,7 +42,7 @@ $('#products').change(function(){
             });
         });
         
-$('#hotoffers').change(function(){
+$('#imageslider').change(function(){
        var r=$('#imageslider').val();
         //alert(r);
        $.ajax({ 

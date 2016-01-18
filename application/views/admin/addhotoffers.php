@@ -55,7 +55,7 @@
 <div class="col-md-6 col-md-offset-3" style="margin-top: 5%;margin-left: 16%;margin-bottom: 5%;width: 44%;">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4>Delete HotOfffer</h4>
+                <h4>Delete Hot Offfer</h4>
             </div>
             <div class="panel-body">
                 <?php $attributes = array("name" => "hotoffersform");

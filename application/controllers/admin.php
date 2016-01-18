@@ -180,14 +180,13 @@ $this->email->send();
      
      }
      
-    
-     
-     
-     
-     
-     public function delete_SliderImage(){
-       if ($_POST['imageslider'] != '-SELECT-') {
-       $boolean = $this->products->delete_imageslider($_POST['imageslider']);
+  public function delete_SliderImage(){
+       $this->form_validation->set_rules('imageslider', 'imageslider', 'trim|required|callback_combo_check');
+       
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('admin/addImageSlider', $this->data);
+        } else { 
+         $boolean = $this->products->delete_imageslider($_POST['imageslider']);
        if($boolean){
          $this->data['dipsucess'] = 'sucess';
          $this->data['products']  = $this->products-> getImageSlidertName();
@@ -197,14 +196,15 @@ $this->email->send();
              $this->data['diperror'] = 'error';
             $this->load->view('admin/addImageSlider', $this->data);
             }
-     }else{
-         echo $this->db->_error_message();
      }
      
      }
      
       public function delete_HotOfferImage(){
-       if ($_POST['hotoffers'] != '-SELECT-') {
+       $this->form_validation->set_rules('hotoffers','hotoffers', 'trim|required|callback_combo_check');
+       if ($this->form_validation->run() == FALSE) {
+            $this->load->view('admin/addhotoffers', $this->data);
+        } else { 
        $boolean = $this->products->delete_hotoffer($_POST['hotoffers']);
        if($boolean){
          $this->data['hfsucess'] = 'sucess';
@@ -215,9 +215,7 @@ $this->email->send();
              $this->data['hfperror'] = 'error';
             $this->load->view('admin/addhotoffers', $this->data);
             }
-     }else{
-         echo $this->db->_error_message();
-     }
+        }
      
      }
      
@@ -330,7 +328,8 @@ $this->email->send();
         $this->form_validation->set_rules('name', 'Name', 'trim|required');
         $this->form_validation->set_rules('discount', 'Discount', 'trim|required|numeric|xss_clean|max_length[2]');
         $this->form_validation->set_rules('image', 'Profile Image', 'callback_image_upload');
-        $this->form_validation->set_rules('location', 'Location', 'trim|required');
+        $this->form_validation->set_rules('location','Location', 'trim|required');
+        $this->form_validation->set_rules('datepicker','Valid Till', 'trim|required');
         $this->form_validation->set_rules('brand', 'brand', 'trim|required|callback_combo_check');
         $this->form_validation->set_rules('category', 'category', 'trim|required|callback_combo_check');
         if ($this->form_validation->run() == FALSE) {
@@ -346,7 +345,8 @@ $this->email->send();
                 'image' => $file_name,
                 'location' => $this->input->post('location'),
                 'category' => $this->input->post('category'),
-                'brand' => $this->input->post('brand')
+                'brand' => $this->input->post('brand'),
+                'valid' => $this->input->post('datepicker'),
             );
              $boolean = $this->products->addProduct($data);
              if($boolean){
@@ -540,8 +540,22 @@ $this->email->send();
             return false;
         }
     }
-     public function image_upload1()
-    {
+    
+    
+    public function expire_product() {
+        $boolean=$this->products->deleteExpireProduct();
+       if($boolean){
+          $this->data['xpsucess'] = 'sucess';  
+          $this->load->view('admin/addproduct', $this->data);
+       }else{
+         $this->data['xperror'] = 'error';
+          $this->load->view('admin/addproduct', $this->data);
+       }
+       
+              
+    }
+   
+     public function image_upload1() {
         
         if ($_FILES['image']['size'] != 0) {
             $upload_dir = './images/';

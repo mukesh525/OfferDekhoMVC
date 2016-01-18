@@ -37,17 +37,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  
   <div class="header-top" style="margin-bottom: -3px;">
 	 <div class="header-bottom">			
-			    	
-             <div class="logo" style="height: 1px;margin-left: -4%" >
-                 <h1 ><a href="<?=base_url()?>">Offers Dekho</a></h1>	
-                              </div>
-             <div class="logo" >
-                                    <div style="width:80px;height:100px ;margin-left: -77%;">
+			  <div class="logo" >
+                                    <div style="width:80px;height:100px ;margin-left:0%;">
                                    <img src="<?=base_url()?>images/logo1.png" class="img-responsive" alt="">
                                     </div>
                            
                                     
-				</div>
+				</div>    	
+             <div class="logo" style="height: 1px;margin-left: 0%" >
+                 <h1 ><a href="<?=base_url()?>">Offers Dekho</a></h1>	
+                              </div>
+           
              
 			 <!---->		 
 			 <div class="top-nav">

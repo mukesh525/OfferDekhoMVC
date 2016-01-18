@@ -16,31 +16,33 @@ class Welcome extends CI_Controller {
                 $result['result1']=$result;
                 $result2['result3']=$result2;
                 $result3['result4']=$result3;
-               // print_r($result3);exit();
                 $this->load->view('templates/imageslider',$result);
                 $this->load->view('templates/containers',$result2);
                 $this->load->view('templates/offers',$result3);
                 $this->load->view('templates/footer');
         }
          function getType($type) {
-                $result1=$this->products->getProductsByType($type); 
+               $result1=$this->products->getProductsByType($type); 
+              //  print_r($result1);exit();
+                $result3['result4']=$this->products->getHotOffers1();
                 if(sizeof($result1) <1) {
                   $this->load->view('templates/emptyproduct');
                  }else{
                   $selection['selections']= $result1;
                   $this->load->view('templates/product',$selection);
-                 }$this->load->view('templates/offers');
+                 } $this->load->view('templates/offers',$result3);
                   $this->load->view('templates/footer');
              
               }
                function getBrands($brand) {
                 $result1=$this->products->getProductsByBrand($brand); 
+                $result3['result4']=$this->products->getHotOffers1();
                  if(sizeof($result1) <1) {
                    $this->load->view('templates/emptyproduct');
                  }else{
                   $selection['selections']= $result1;
                   $this->load->view('templates/product',$selection);
-                 }$this->load->view('templates/offers');
+                 } $this->load->view('templates/offers',$result3);
                  $this->load->view('templates/footer');
              
               }

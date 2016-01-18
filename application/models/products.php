@@ -49,9 +49,20 @@ Class Products extends CI_Model {
        
     }
     
+     public function deleteExpireProduct(){
+           $SQL='DELETE FROM  `products` WHERE  `valid` < NOW( ) ';
+           $query = $this->db->query($SQL);
+
+         if($this->db->affected_rows()>0){
+            return true;
+        }else{
+            return false;
+        } 
+       
+     }
     
     
-      public function getHotOffersName() {
+    public function getHotOffersName() {
             $this->db->select('id'); 
             $this->db->select('name'); 
             $this->db->from('hotoffers');
@@ -72,10 +83,8 @@ Class Products extends CI_Model {
     
     
     function delete_product($id){ 
-         // $id = (is_numeric($id) ? (int)$id: 0);
           $image=$this->getProductImage($id);
-        // $path=base_url()."images/".$image;
-         $path="images/".$image;
+          $path="images/".$image;
          if(@unlink($path)) {//echo "Deleted file ";exit();
              }
          else{//echo $path."File can't be deleted";exit();

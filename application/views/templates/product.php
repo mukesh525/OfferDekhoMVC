@@ -1,6 +1,3 @@
-
-
-
 <!--header//-->
 <div class="product-model">	 
 	 <div class="container">
@@ -12,11 +9,8 @@
                       
                
 		 <div class="col-md-11 product-model-sec">
-                       <?php foreach($selections as $key => $row){
-                         session_start();
-                       $_SESSION['product'] =$row;?>   
-                      <?php $attributes = array("name" => "imagesliderform");
-                       echo form_open_multipart('admin/view');?>
+                       <?php foreach($selections as $key => $row){?>   
+                      <?php $attributes = array("name" => "imagesliderform");?>
                            <a href="#"/><div class="product-grid">
 						<div class="more-product"><span> </span></div>						
 						<div class="product-img b-link-stripe b-animate-go  thickbox">
@@ -41,7 +35,6 @@
 							
 						</div>
 					</div>
-                         <?php echo form_close(); ?>
 				<?php } ?>	
 			</div>
                            
@@ -52,6 +45,3 @@
 </div>
 <!---->
 
-<!---->
-</body>
-</html>
