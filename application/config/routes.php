@@ -52,6 +52,7 @@ $route['404_override'] = '';
  $route['AddBrandCategory']='admin/login';
  $route['View']='admin/view';
  $route['AddHotOffers']='admin/addHotOffers';
+  $route['DeleteOffer']='admin/expire_offer';
 
 
 /* End of file routes.php */

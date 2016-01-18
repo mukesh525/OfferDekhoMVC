@@ -7,6 +7,12 @@ $(document).ready(function() {
 });
 
 
+$('#datepicker').bind("cut copy paste",function(e) {
+     e.preventDefault();
+ });
+
+
+
 $('#navigation li').click(function() {
     // alert("selected");
     $('#navigation li').removeClass('selected');

@@ -32,6 +32,11 @@
                     <span class="text-danger"><?php echo form_error('location'); ?></span>
                 </div>
                <div class="form-group">
+                    <label style="margin-right: 5%;" for="datepicker">Valid  Till </label>
+                    <input class="form-control"  type="text" id="datepicker" placeholder="Pickup Date" name="datepicker"  value="<?php echo set_value('datepicker');?>"/>
+                    <span class="text-danger"><?php echo form_error('datepicker'); ?></span>
+                </div>
+               <div class="form-group">
                     <button name="submit" type="submit" class="btn btn-default">Add Hot Offer</button>
                     <button name="cancel" type="reset" class="btn btn-default">Cancel</button>
                 </div>
@@ -85,6 +90,37 @@
                <?php }?>
             </div>
         </div>
+    
+    
+    
+    
+    
+     <div class="panel panel-default" style="margin-top: 17%;">
+            <div class="panel-heading">
+                <h4>Delete Expire Offer</h4>
+            </div>
+               <div class="panel-body">
+                <?php $attributes = array("name" => "productform");
+               echo form_open_multipart('DeleteOffer');?>
+            
+                <div class="form-group">
+                    <button name="submit" type="submit" class="btn btn-default">Delete Expire Offer's</button>
+                </div>
+                <?php echo form_close(); ?>
+                <?php echo $this->session->flashdata('verify_msg'); ?>
+                <?php echo $this->session->flashdata('verify_msg'); ?>
+                <?php if(isset($xosucess)){?>
+                <div style="margin-left: 2%;width: 62%;align: center;" >
+                 <font size="3" color="green"><p><strong>Good!</strong>Expire Offer Deleted Sucessfully!!</p></font> 
+                </div>
+               <?php }?>
+              <?php if(isset($xoerror)){?>
+                <div style="margin-left: 2%;width: 62%;align: center;" >
+                 <font size="3" color="green"><p><strong>Oops!</strong>Nothing to Delete!!</p></font> 
+                </div>
+               <?php }?>
+             
+            </div>
     </div>  
 
 </div>
@@ -94,5 +130,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
     <script src=<?php echo site_url("js/scripts.js")?>></script>
+     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css"/> 
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script> 
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   </body>
 </html>

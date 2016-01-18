@@ -391,6 +391,7 @@ $this->email->send();
         $this->form_validation->set_rules('image', 'Image', 'callback_image_upload2');
         $this->form_validation->set_rules('discount','Discount','trim|required|numeric|xss_clean|max_length[2]');
         $this->form_validation->set_rules('location','Location','trim|required');
+        $this->form_validation->set_rules('datepicker','Valid Till', 'trim|required');
       
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('admin/addhotoffers', $this->data);
@@ -404,6 +405,7 @@ $this->email->send();
                 'discount' => $this->input->post('discount'),
                 'location' => $this->input->post('location'),
                 'image' => $file_name,
+                'valid' => $this->input->post('datepicker'),
                 );
              $boolean = $this->products->addHotOffersData($data);
              if($boolean){
@@ -475,7 +477,7 @@ $this->email->send();
             
             
         } else {
-            $this->form_validation->set_message('image_upload', "No file selected");
+            $this->form_validation->set_message('image_upload2', "No file selected");
             return false;
         }
     }
@@ -546,14 +548,28 @@ $this->email->send();
         $boolean=$this->products->deleteExpireProduct();
        if($boolean){
           $this->data['xpsucess'] = 'sucess';  
-          $this->load->view('admin/addproduct', $this->data);
+           $this->load->view('admin/addproduct', $this->data);
        }else{
          $this->data['xperror'] = 'error';
-          $this->load->view('admin/addproduct', $this->data);
+         $this->load->view('admin/addproduct', $this->data);
        }
        
               
     }
+    public function expire_offer() {
+        $boolean=$this->products->deleteExpireOffer();
+       if($boolean){
+          $this->data['xosucess'] = 'sucess';  
+         
+            $this->load->view('admin/addhotoffers', $this->data);
+       }else{
+         $this->data['xoerror'] = 'error';
+           $this->load->view('admin/addhotoffers', $this->data);
+       }
+       
+              
+    }
+   
    
      public function image_upload1() {
         

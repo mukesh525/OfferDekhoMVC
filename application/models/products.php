@@ -50,11 +50,10 @@ Class Products extends CI_Model {
     }
     
      public function deleteExpireProduct(){
-            $this->db->select('image'); 
-            $this->db->from('products');
-            $query1 = $this->db->get();
+            $SQL1='SELECT `image` FROM  `products` WHERE  `valid` < NOW( ) ';
+            $query1 = $this->db->query($SQL1);
             $result = $query1->result();
-            $image_name=array();
+           $image_name=array();
             for ($i = 0; $i < count($result); $i++){
                array_push($image_name,$result[$i]->image);
             }
@@ -68,6 +67,29 @@ Class Products extends CI_Model {
                   }
             }
               $SQL='DELETE FROM  `products` WHERE  `valid` < NOW( ) ';
+             $query = $this->db->query($SQL);
+              if($this->db->affected_rows()>0){
+           return true;
+             }else{
+              return false;
+           } 
+   
+     }
+       public function deleteExpireOffer(){
+            $SQL1='SELECT `image` FROM  `hotoffers` WHERE  `valid` < NOW( ) ';
+            $query1 = $this->db->query($SQL1);
+            $result = $query1->result();
+            $image_name=array();
+            for ($i = 0; $i < count($result); $i++){
+               array_push($image_name,$result[$i]->image);
+            }
+           
+            for ($i = 0; $i < count($image_name); $i++){
+               /// echo $image_name[$i];
+                $path="images/".$image_name[$i];
+                @unlink($path);
+            }
+              $SQL='DELETE FROM  `hotoffers` WHERE `valid` < NOW( ) ';
              $query = $this->db->query($SQL);
               if($this->db->affected_rows()>0){
            return true;
