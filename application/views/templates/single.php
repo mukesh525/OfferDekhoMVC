@@ -29,7 +29,7 @@
 			     <div class="col-md-5 single-top-in simpleCart_shelfItem">
 					  <div class="single-para ">
 						 <h4><?php echo $result->name?> </h4>							
-							<h5 class="item_price"><?php echo $result->discount."%"?></h5>							
+							<h5 class="item_price"><?php echo $result->discount."% off Valid till ".$result->valid." " ?></h5>							
 							<p class="para"><?php echo $result->location ?></p>
 <!--							<div class="prdt-info-grid">
 								 <ul>

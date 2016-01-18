@@ -11,14 +11,13 @@
 		 <div class="col-md-11 product-model-sec">
                        <?php foreach($selections as $key => $row){?>   
                       <?php $attributes = array("name" => "imagesliderform");?>
-                           <a href="#"/><div class="product-grid">
+                           <a href="<?=base_url()?>welcome/singleproduct/<?php echo $row['id'] ?>"/><div class="product-grid">
 						<div class="more-product"><span> </span></div>						
 						<div class="product-img b-link-stripe b-animate-go  thickbox">
 							<img src="<?=base_url()?>images/<?php echo $row['image'] ?>" class="img-responsive" alt="">
 							<div class="b-wrapper">
-							<h4 class="b-animate b-from-left  b-delay03">	
-                                                             <input type="hidden" name="image" value="<?php echo $row['image'] ?>"> 
-                                                            <button type="submit"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"/>Quick View</button>
+							<h4 class="b-animate b-from-left  b-delay03">							
+							<button><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>Quick View</button>
 							</h4>
 							</div>
 						</div></a>						
