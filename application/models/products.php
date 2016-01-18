@@ -50,15 +50,31 @@ Class Products extends CI_Model {
     }
     
      public function deleteExpireProduct(){
-           $SQL='DELETE FROM  `products` WHERE  `valid` < NOW( ) ';
-           $query = $this->db->query($SQL);
-
-         if($this->db->affected_rows()>0){
-            return true;
-        }else{
-            return false;
-        } 
-       
+            $this->db->select('image'); 
+            $this->db->from('products');
+            $query1 = $this->db->get();
+            $result = $query1->result();
+            $image_name=array();
+            for ($i = 0; $i < count($result); $i++){
+               array_push($image_name,$result[$i]->image);
+            }
+            for ($i = 0; $i < count($image_name); $i++){
+               /// echo $image_name[$i];
+                $path="images/".$image_name[$i];
+                if(@unlink($path)) {//echo "Deleted file ";exit();
+                    
+                }
+                else{//echo $path."File can't be deleted";exit();
+                  }
+            }
+              $SQL='DELETE FROM  `products` WHERE  `valid` < NOW( ) ';
+             $query = $this->db->query($SQL);
+              if($this->db->affected_rows()>0){
+           return true;
+             }else{
+              return false;
+           } 
+   
      }
     
     

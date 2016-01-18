@@ -31,13 +31,13 @@
 
                 <div class="form-group">
                     <label for="location">Location</label>
-                    <input class="form-control" id="location" name="location" placeholder="Location" type="text" />
+                    <input class="form-control" id="location" name="location" placeholder="Location" type="text" value="<?php echo set_value('location');?>"/>
                     <span class="text-danger"><?php echo form_error('location'); ?></span>
                 </div>
 
                <div class="form-group">
                     <label style="margin-right: 5%;" for="datepicker">Valid  Till </label>
-                    <input class="form-control"  type="text" id="datepicker" placeholder="Pickup Date" name="datepicker"/>
+                    <input class="form-control"  type="text" id="datepicker" placeholder="Pickup Date" name="datepicker"  value="<?php echo set_value('datepicker');?>"/>
                     <span class="text-danger"><?php echo form_error('datepicker'); ?></span>
                 </div>
                <div class="form-group">
