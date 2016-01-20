@@ -84,13 +84,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 </div>
 								
                          <div style="float: right;">
-                            <a href="#"><img title="Twitter" src="http://www.pnglogo.com/wp-content/uploads/2015/10/Twitter-Bird-PNG-02770.png" alt="Twitter" width="30" height="30" /></a>
-                            <a href="#"><img title="Facebook" src="http://icons.iconarchive.com/icons/yootheme/social-bookmark/512/social-facebook-box-blue-icon.png" alt="Facebook" width="35" height="35" /></a> 
-                            <a href="#"><img title="Google" src="http://vignette2.wikia.nocookie.net/logopedia/images/d/d2/Google_icon_2015.png/revision/latest?cb=20150902024016" alt="Facebook" width="35" height="35" /></a>    
+                            <a target="_blank" href="https://twitter.com/offerslootlo"><img title="Twitter" src="http://www.pnglogo.com/wp-content/uploads/2015/10/Twitter-Bird-PNG-02770.png" alt="Twitter" width="30" height="30" /></a>
+                            <a target="_blank" href="https://www.facebook.com/Offerslootlo-1750367108529370/?ref=tn_tnmn"><img title="Facebook" src="http://icons.iconarchive.com/icons/yootheme/social-bookmark/512/social-facebook-box-blue-icon.png" alt="Facebook" width="35" height="35" /></a> 
+                            <a target="_blank" href="https://plus.google.com/u/1/116998090342928429335?hl=en"><img title="Google" src="http://vignette2.wikia.nocookie.net/logopedia/images/d/d2/Google_icon_2015.png/revision/latest?cb=20150902024016" alt="Facebook" width="35" height="35" /></a>    
                             <a href="#"><img title="LinkedIn" src=" https://cdn0.iconfinder.com/data/icons/yooicons_set01_socialbookmarks/256/social_linkedin_box_blue.png " alt="Facebook" width="35" height="35" /></a>    
                         
                            <p>Contact:<b>+91-8892521832 &nbsp; &nbsp; </b><br/>
-                                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>+91-8892521832 &nbsp; &nbsp; </b><br/></p>
+                                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>+91-7022611211 &nbsp; &nbsp; </b><br/></p>
                  
                            </div>
                        
