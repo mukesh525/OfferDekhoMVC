@@ -78,24 +78,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div>
 					</li>	
-					<li class="grid"><a href="typo.php">Typo</a></li>
-					<li class="grid"><a href="contact.php">Contact</a></li>					
+					<li class="grid"><a href="#">Typo</a></li>
+					<li class="grid"><a href="#">Contact</a></li>					
 				</ul>				
 			 </div>
-			 <div class="social" style="background:#00897B;">							
-				<a href="#"><i class="facebook"></i></a>
-				<a href="#"><i class="twitter"></i></a>
-				<a href="#"><i class="google"></i></a>	
-				<a href="#"><i class="youtube"></i></a>	
-                               
-		         </div>
-                          <div class="social" style="background:#FFF;">							
-                              <p>contact:<b>+91-8892521832  </b><br/></p>
-		              </div>
+								
+                         <div style="float: right;">
+                            <a href="#"><img title="Twitter" src="http://www.pnglogo.com/wp-content/uploads/2015/10/Twitter-Bird-PNG-02770.png" alt="Twitter" width="30" height="30" /></a>
+                            <a href="#"><img title="Facebook" src="http://icons.iconarchive.com/icons/yootheme/social-bookmark/512/social-facebook-box-blue-icon.png" alt="Facebook" width="35" height="35" /></a> 
+                            <a href="#"><img title="Google" src="http://vignette2.wikia.nocookie.net/logopedia/images/d/d2/Google_icon_2015.png/revision/latest?cb=20150902024016" alt="Facebook" width="35" height="35" /></a>    
+                            <a href="#"><img title="LinkedIn" src=" https://cdn0.iconfinder.com/data/icons/yooicons_set01_socialbookmarks/256/social_linkedin_box_blue.png " alt="Facebook" width="35" height="35" /></a>    
+                        
+                           <p>Contact:<b>+91-8892521832 &nbsp; &nbsp; </b><br/>
+                                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>+91-8892521832 &nbsp; &nbsp; </b><br/></p>
+                 
+                           </div>
+                       
+                          
                           
 		
 			 <div class="clearfix"> </div>
 			 <!---->			 
-			 </div>
+			
 			<div class="clearfix"> </div>
-</div>
+
