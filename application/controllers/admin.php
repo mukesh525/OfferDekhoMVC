@@ -63,8 +63,7 @@ $this->email->to('mukeshjha313@gmail.com');
 $this->email->subject('Admin Login Alert');
 $this->email->message("Admin with eamil id ".$Username." is logged in OfferDekho admin Panel!" );
 $this->email->send();
-
-//echo $this->email->print_debugger();    
+ 
 }
    public function login()
     {
@@ -88,14 +87,10 @@ $this->email->send();
             if ($auth) {
                 $this->SendEmail($this->input->post('l_email'));
                  redirect(base_url("admin"), 'refresh'); 
-                //$this->index();
-                //$this->load->view("admin/addbrandCategory", $this->data);
-                //$this->load->view("admin/dashboard", $this->data);
             } else {
                 $this->data['error'] = "false";
-                $this->index();
                 $this->load->view("admin/login", $this->data);
-                //$this->SendEmail($this->input->post('l_email'));
+              
             }
         }
     }
@@ -258,7 +253,7 @@ $this->email->send();
     public function DeleteBrand()
     {
         if ($_POST['brand'] != '-SELECT-') {
-            print_r($_POST);
+           
             $boolean = $this->user_model->delete_brand($_POST['brand']);
             if ($boolean) {
                 $this->data['bdsucess'] = 'sucess';

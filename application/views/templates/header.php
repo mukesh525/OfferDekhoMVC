@@ -1,5 +1,5 @@
 <head>
-<title>Offer Dekho:Get to know about all offer near to your supermarket</title>
+<title>OffersLootLo:Get to know about all offer near to your supermarket</title>
 <link href="<?=base_url()?>css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="<?=base_url()?>css/docs.min.css" rel="stylesheet">
 <!-- Custom Theme files -->
@@ -45,7 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     
 				</div>    	
              <div class="logo" style="height: 1px;margin-left: 0%" >
-                 <h1 ><a href="<?=base_url()?>">Offers Dekho</a></h1>	
+                 <h1 ><a href="<?=base_url()?>">OffersLootLo</a></h1>	
                               </div>
            
              
@@ -82,7 +82,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li class="grid"><a href="contact.php">Contact</a></li>					
 				</ul>				
 			 </div>
-			
+			 <div class="social" style="background:#00897B;">							
+				<a href="#"><i class="facebook"></i></a>
+				<a href="#"><i class="twitter"></i></a>
+				<a href="#"><i class="google"></i></a>	
+				<a href="#"><i class="youtube"></i></a>	
+                               
+		         </div>
+                          <div class="social" style="background:#FFF;">							
+                              <p>contact:<b>+91-8892521832  </b><br/></p>
+		              </div>
+                          
 		
 			 <div class="clearfix"> </div>
 			 <!---->			 

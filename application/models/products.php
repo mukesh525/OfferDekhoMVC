@@ -1,5 +1,4 @@
 <?php
-
 Class Products extends CI_Model {
     
     public function __construct() {
@@ -292,6 +291,5 @@ Class Products extends CI_Model {
 
 }
     
-}
-?>
+}?>
 
